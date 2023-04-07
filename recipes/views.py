@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Recipe
 
 # Create your views here.
+class RecipeListView(generic.ListView):
+    model = Recipe
+    queryset = Post.objects.filter(status=1).order_by('-created_date')
+    template_name = 'index.html'
+    paginate_by = 6
