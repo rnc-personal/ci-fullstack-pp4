@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
+CATEGORY = (
+    ('bakery', 'Bakery'),
+    ('snacks', 'Snacks'),
+    ('health', 'Health'),
+    ('drinks', 'Drinks'),
+    ('fine dining', 'Fine Dining'))
+
+
 # Create your models here.
 
 
@@ -15,6 +23,7 @@ class Recipe(models.Model):
     image = CloudinaryField('image', default='placeholder')
     snippet = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
+    category = models.CharField(max_length=200, choices=CATEGORY, default='bakery')
     score = models.IntegerField(default=0)
     content = models.TextField()
     ingredients = models.TextField()
