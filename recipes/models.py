@@ -24,7 +24,7 @@ class Recipe(models.Model):
     snippet = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
     category = models.CharField(max_length=200, choices=CATEGORY, default='bakery')
-    score = models.IntegerField(default=0)
+    score = models.ManyToManyField(User, related_name='recipe_score', blank=True)
     content = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
