@@ -44,11 +44,12 @@ class Comment(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
     body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['-created_on']
+        ordering = ['-created_date']
 
     def __str__(self):
         return f"Comment: {self.body} by {self.name}"
