@@ -13,10 +13,11 @@
                         <header class="mb-4">
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1">{{ recipe.title }}</h1>
+                            <p class="fw-bold">{{ recipe.snippet }}</p>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ recipe.get_category_display }}</a>
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">Posted on {{ recipe.created_date }}</div>
-                            <!-- Post categories-->
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ recipe.get_category_display }}</a>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4">
