@@ -8,7 +8,7 @@ CATEGORY = (
     ('snacks', 'Snacks'),
     ('health', 'Health'),
     ('drinks', 'Drinks'),
-    ('fine dining', 'Fine Dining'))
+    ('fine-dining', 'Fine Dining'))
 
 
 # Create your models here.
@@ -37,6 +37,8 @@ class Recipe(models.Model):
 
     def recipe_score(self):
         return self.score.count()
+
+
 
 
 class Comment(models.Model):

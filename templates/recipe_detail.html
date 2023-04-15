@@ -16,8 +16,16 @@
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">Posted on {{ recipe.created_date }}</div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            {% comment %} Loop of the recipe.category and return the categories from the model {% endcomment %}
+   
+                            {% for category_name in recipe.category %}
+                                
+                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ category_name }}</a>
+                                
+                            {% endfor %}
+                            
+
+
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4">
