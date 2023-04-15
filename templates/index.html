@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<!-- Temp Inline styline for sections -->
+<style>
+  section {
+    margin: 100px 0;
+  }
+</style>
+
 <!-- BS5 Carousel -->
 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -46,9 +54,9 @@
 <section class="container-fluid">
   <!-- 1st Row -->
   <div class="container">
+    <h2 class="text-center">TRENDING RECIPES</h2>
     <div class="d-flex justify-content-center">
       <!-- Loop through Recipes with Highest score -->
-
       <!-- Placeholder Cards -->
       <div class="row">
         <div class="card" style="width: 18rem;">
@@ -100,9 +108,9 @@
 
   <!-- 2nd Row -->
   <div class="container">
+    <h2 class="text-center">NEWEST RECIPES</h2>
     <div class="d-flex justify-content-evenly">
       <!-- Loop through Recipes with Most Recent Creation Date -->
-
       <!-- Placeholder Cards -->
       <div class="row">
         <div class="card" style="width: 18rem;">
