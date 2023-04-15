@@ -20,7 +20,7 @@
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="{{ recipe.image.url }}" alt="..." /></figure>
+                        <figure class="mb-4"><img class="img-fluid rounded" src="{{ recipe.image.url }}" alt="{{ recipe.title }}: {{ recipe.snippet }}" /></figure>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">{{ recipe.ingredients|striptags }}</p>
