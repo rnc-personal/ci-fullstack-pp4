@@ -25,7 +25,7 @@ class Recipe(models.Model):
     snippet = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
     category = models.CharField(max_length=200, choices=CATEGORY, default='bakery')
-    score = models.ManyToManyField(User, related_name='recipe_score', blank=True, editable=False)
+    score = models.ManyToManyField(User, through='RecipeScore', related_name='recipe_score', blank=True, editable=False, default=0)
     content = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
@@ -39,11 +39,20 @@ class Recipe(models.Model):
     def recipe_score(self):
         return self.score.count()
 
+
+def get_default_user():
+    return User.objects.get(username='rcadmin')
+
+
+# TODO: Fix the user foreign key issue. "ValueError: Field 'id' expected a number but got 'rcadmin'."
 class RecipeScore(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe_score")
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="user_score", default="test-recipe")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_score', default=get_default_user)
     submitted_score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
 
-
+    class Meta:
+        unique_together = ('recipe', 'user')
+    
 
 class Comment(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="comments")
