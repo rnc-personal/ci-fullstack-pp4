@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -38,6 +39,9 @@ class Recipe(models.Model):
     def recipe_score(self):
         return self.score.count()
 
+class RecipeScore(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe_score")
+    submitted_score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
 
 
 
