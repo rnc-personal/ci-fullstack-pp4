@@ -54,7 +54,7 @@
 <section class="container-fluid">
   <!-- 1st Row -->
   <div class="container">
-    <h2 class="text-center">TRENDING RECIPES</h2>
+    <h2 class="text-center">NEWEST RECIPES</h2>
     <div class="d-flex justify-content-center">
       <!-- Loop through Recipes with Highest score -->
       <!-- Placeholder Cards -->
@@ -83,7 +83,7 @@
       <!-- Loop through Recipes with Highest score -->
       <!-- Placeholder Cards -->
       <div class="row">
-        {% for recipe in newest_recipes %}
+        {% for recipe in trending_recipes %}
         <div class="card" style="width: 18rem;">
           <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
           <div class="card-body">

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.exceptions import ValidationError
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -29,12 +30,21 @@ class Recipe(models.Model):
     content = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
+    is_featured = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_date']
 
     def __str__(self):
         return self.title
+
+    # Reference this in Readme as had to look this up.
+    def save(self, *args, **kwargs):
+            if self.is_featured:
+                # check if there are already 2 featured recipes
+                if Recipe.objects.filter(is_featured=True).count() == 2:
+                    raise ValidationError("Only 2 recipes can be featured at a time.")
+            super(Recipe, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):
