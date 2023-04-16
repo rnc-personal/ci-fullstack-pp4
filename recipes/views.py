@@ -27,6 +27,16 @@ class RecipeDetailView(View):
             },
         )
 
+class HomeRecipesView(generic.ListView):
+    template_name = 'index.html'
+    def get(self, request):
+        newest_recipes = Recipe.objects.filter(status=1).order_by('-created_date')[:4]
+        trending_recipes = Recipe.objects.all().order_by('-created_date')[:8]
 
+        context = {
+            'newest_recipes': newest_recipes,
+            'trending_recipes': trending_recipes,
+        }
 
+        return render(request, self.template_name, context)
 

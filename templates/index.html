@@ -59,46 +59,16 @@
       <!-- Loop through Recipes with Highest score -->
       <!-- Placeholder Cards -->
       <div class="row">
+        {% for recipe in newest_recipes %}
         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-text">{{ recipe.snippet }}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
+        {% endfor %}
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -108,105 +78,76 @@
 
   <!-- 2nd Row -->
   <div class="container">
-    <h2 class="text-center">NEWEST RECIPES</h2>
-    <div class="d-flex justify-content-evenly">
-      <!-- Loop through Recipes with Most Recent Creation Date -->
+    <h2 class="text-center">TRENDING RECIPES</h2>
+    <div class="d-flex justify-content-center">
+      <!-- Loop through Recipes with Highest score -->
       <!-- Placeholder Cards -->
       <div class="row">
+        {% for recipe in newest_recipes %}
         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-text">{{ recipe.snippet }}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
+        {% endfor %}
       </div>
     </div>
     <div class="d-flex justify-content-center">
       <a class="btn btn-primary btn-sm " href="#" role="button">See All</a>
     </div>
   </div>
+</section>
 
-  <section class="featured-recipes">
-    <div class="container">
-      <div class="row justify-content-center">
-        <!-- 2 Recipes Marked as featured, limit of 2 -->
-        <div class="col-5 md-6">
-          <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-              to
-              featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </div>
+<section class="featured-recipes">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- 2 Recipes Marked as featured, limit of 2 -->
+      <div class="col-5 md-6">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+            to
+            featured content or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </div>
+      </div>
 
-        <div class="col-5 md-6">
-          <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-              to
-              featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </div>
+      <div class="col-5 md-6">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+            to
+            featured content or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="promo">
-    <!-- Heading with a 2 column layout with text on the left and image on the right -->
-    <div class="container">
-      <div class="row justify-content-center">
-        <h3 class="text-center">FEATURED RECIPES</h3>
-        <div class="col-5 col-md-6">
-          <h3>Hello, world!</h3>
-          <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
-            content or information.</p>
-        </div>
-        <div class="col-4 col-md-4">
-          <img class="img-fluid" src="img/bootstrap-solid.png" alt="Bootstrap">
-        </div>
+<section class="promo">
+  <!-- Heading with a 2 column layout with text on the left and image on the right -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <h3 class="text-center">FEATURED RECIPES</h3>
+      <div class="col-5 col-md-6">
+        <h3>Hello, world!</h3>
+        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
+          content or information.</p>
       </div>
+      <div class="col-4 col-md-4">
+        <img class="img-fluid" src="img/bootstrap-solid.png" alt="Bootstrap">
+      </div>
+    </div>
 
 
-  </section>
+</section>
 
-  {% endblock %}
+{% endblock %}
