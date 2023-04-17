@@ -2,26 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Recipe
 
-# Create your views here.
-
-
-# class RecipeListView(generic.ListView):
-#     def get(self, request, slug, *args, **kwargs):
-#         model = Recipe
-#         queryset = Recipe.objects.filter(status=1).order_by('-created_date')
-#         recipe_list = get_object_or_404(queryset, slug=slug)
-#         template_name = 'recipe_list.html'
-# 
-#         newest_recipes_list = Recipe.objects.filter(status=1).order_by('-created_date')
-#         trending_recipes_list = Recipe.objects.all().order_by('-created_date')
-
-#         return render(
-#             request,
-#             'recipe_list.html',
-#             {
-#                 'recipe_list': recipe_list
-#             },
-#         )
 
 class RecipeListView(generic.ListView):
     template_name = 'recipe_list.html'
