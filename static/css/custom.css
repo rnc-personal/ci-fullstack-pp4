@@ -12,11 +12,11 @@ body {
     background-color: var(--site-bg);
 }
 
-.rounded {
+.rounded-add {
     border-radius: var(--rounded-corners-all);
 }
 
-.rounded-top {
+.rounded-top-add {
     border-top-left-radius: var(--rounded-corners-top);
     border-top-right-radius: var(--rounded-corners-top);
 }
