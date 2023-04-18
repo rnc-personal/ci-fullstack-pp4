@@ -23,7 +23,7 @@ class Recipe(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     image = CloudinaryField('image', default='placeholder')
-    snippet = models.TextField()
+    snippet = models.TextField(max_length=100)
     status = models.IntegerField(choices=STATUS, default=0)
     category = models.CharField(max_length=200, choices=CATEGORY, default='bakery')
     # score = models.ManyToManyField(User, through='RecipeScore', related_name='recipe_score', blank=True, editable=False)
