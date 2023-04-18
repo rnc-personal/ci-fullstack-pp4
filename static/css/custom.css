@@ -6,6 +6,7 @@
     --rounded-corners-all: 1.25rem;
     --rounded-corners-top: 1.25rem;
 }
+
 /* Utility */
 
 body {
@@ -48,17 +49,18 @@ li,
     color: var(--site-text);
 }
 
-.carousel-caption > h5 {
+.carousel-caption>h5 {
     color: var(--site-bg);
     font-size: 4rem;
 }
 
-.carousel-caption > p {
+.carousel-caption>p {
     color: var(--site-bg);
     font-size: 2rem;
 }
 
-a:hover,.nav-link:hover {
+a:hover,
+.nav-link:hover {
     color: #fafafa;
     font-weight: 500;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -81,7 +83,7 @@ a:hover,.nav-link:hover {
 }
 
 .navbar-toggler:focus>span {
-    color:var(--site-bg);
+    color: var(--site-bg);
 }
 
 
@@ -94,11 +96,12 @@ a:hover,.nav-link:hover {
         left: 50%;
         transform: translateX(-50%);
     }
-    .carousel-caption > h5 {
+
+    .carousel-caption>h5 {
         font-size: 1.25rem;
     }
-    .carousel-caption > p {
 
+    .carousel-caption>p {
         font-size: 1rem;
     }
 }
