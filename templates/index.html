@@ -55,11 +55,10 @@
   <!-- 1st Row -->
   <div class="container">
     <h2 class="text-center">NEWEST RECIPES</h2>
-    <div class="d-flex justify-content-center">
-      <!-- Loop through Recipes with Highest score -->
-      <!-- Placeholder Cards -->
-      <div class="row">
-        {% for recipe in newest_recipes %}
+    <!-- Placeholder Cards -->
+    <div class="row">
+      {% for recipe in newest_recipes %}
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex justify-content-center" style="margin: 1.5rem 0;">
         <div class="card" style="width: 18rem;">
           <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -68,22 +67,23 @@
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
-    <div class="d-flex justify-content-center">
-      <a class="btn btn-primary btn-sm " href="#" role="button">See All</a>
-    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-primary btn-sm " href="#" role="button">See All</a>
+  </div>
   </div>
 
   <!-- 2nd Row -->
   <div class="container">
     <h2 class="text-center">TRENDING RECIPES</h2>
-    <div class="d-flex justify-content-center">
-      <!-- Loop through Recipes with Highest score -->
-      <!-- Placeholder Cards -->
-      <div class="row">
-        {% for recipe in trending_recipes %}
+    <!-- Loop through Recipes with Highest score -->
+    <!-- Placeholder Cards -->
+    <div class="row">
+      {% for recipe in trending_recipes %}
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex justify-content-center" style="margin: 1.5rem 0;">
         <div class="card" style="width: 18rem;">
           <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -92,9 +92,10 @@
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
+
     <div class="d-flex justify-content-center">
       <a class="btn btn-primary btn-sm " href="#" role="button">See All</a>
     </div>
