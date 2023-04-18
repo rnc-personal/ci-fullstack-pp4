@@ -3,11 +3,22 @@
     --highlight-light: #FDE0DE;
     --site-bg: #fafafa;
     --site-text: #1E1E1E;
+    --rounded-corners-all: 1.25rem;
+    --rounded-corners-top: 1.25rem;
 }
 /* Utility */
 
 body {
     background-color: var(--site-bg);
+}
+
+.rounded {
+    border-radius: var(--rounded-corners-all);
+}
+
+.rounded-top {
+    border-top-left-radius: var(--rounded-corners-top);
+    border-top-right-radius: var(--rounded-corners-top);
 }
 
 /* Colours */
