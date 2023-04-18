@@ -65,13 +65,19 @@ a:hover,.nav-link:hover {
 
 
 
+/* Overrides */
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler:focus>span {
+    color:var(--site-bg);
+}
 
 
+/* Media Queries */
 
-
-
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 991px) {
     .logo-wrapper {
         width: 50px;
         top: 3px;
