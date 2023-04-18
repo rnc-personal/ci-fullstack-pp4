@@ -48,6 +48,16 @@ li,
     color: var(--site-text);
 }
 
+.carousel-caption > h5 {
+    color: var(--site-bg);
+    font-size: 4rem;
+}
+
+.carousel-caption > p {
+    color: var(--site-bg);
+    font-size: 2rem;
+}
+
 a:hover,.nav-link:hover {
     color: #fafafa;
     font-weight: 500;
@@ -83,5 +93,12 @@ a:hover,.nav-link:hover {
         top: 3px;
         left: 50%;
         transform: translateX(-50%);
+    }
+    .carousel-caption > h5 {
+        font-size: 1.25rem;
+    }
+    .carousel-caption > p {
+
+        font-size: 1rem;
     }
 }
