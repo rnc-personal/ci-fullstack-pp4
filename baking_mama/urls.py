@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipes.urls'), name='recipe_urls'),
     path('category/', views.RecipeByCategoryView.as_view(), name='category_view'),
+    path('difficulty/', views.RecipeByDifficultyView.as_view(), name='difficulty_view'),
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('allauth.urls')),
 ]

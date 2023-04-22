@@ -37,6 +37,22 @@ class RecipeByCategoryView(View):
 
         return render(request, self.template_name, context)
 
+
+class RecipeByDifficultyView(View):
+    template_name = 'recipe_list.html'
+
+    def get(self, request, *args, **kwargs):
+        difficulty = request.GET.get('difficulty', None)
+
+        recipes = Recipe.objects.filter(difficulty=difficulty)
+        context = {
+                'difficulty': difficulty,
+                'recipes': recipes,
+            }
+
+        return render(request, self.template_name, context)
+
+
 class RecipeDetailView(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
