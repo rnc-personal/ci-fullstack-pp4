@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Count
 from django.views import generic, View
 from django.http import Http404
 from .models import Recipe
@@ -50,19 +51,26 @@ class RecipeByDifficultyView(View):
 
         return render(request, self.template_name, context)
 
+# This is for checking which categories are empty / have a recipe attached
+# Reference in the readme
+def get_categories_with_recipes():
+    categories_with_recipes = Recipe.objects.values('category').annotate(recipe_count=Count('category')).filter(recipe_count__gt=0)
+    return [item['category'] for item in categories_with_recipes]
 
 class RecipeDetailView(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('-created_date')
+        categories = get_categories_with_recipes()
 
         return render(
             request,
             'recipe_detail.html',
             {
                 'recipe': recipe,
-                'comments': comments
+                'categories': categories,
+                'comments': comments,
             },
         )
 
