@@ -19,7 +19,7 @@
                             <div class="col-md-6">
                                 <h1 class="display-4 fst-italic">{{ recipe.title }}</h1>
                                 <p class="lead my-3">{{ recipe.snippet }}</p>
-                                <a href="{{ recipe.slug }}" class="btn-lg fw-bold accent-dark text-decoration-none">Lets Get Started! 👩🏻‍🍳</a>
+                                <a href="/recipes/{{ recipe.slug }}" class="btn-lg fw-bold accent-dark text-decoration-none">Lets Get Started! 👩🏻‍🍳</a>
                             </div>
                           </div>
                     </article>
@@ -39,29 +39,22 @@
                         </div>
                     </div>
                     <!-- Categories widget-->
-                    {% if categories %}
+                    
                     <div class="card mb-4">
                         <div class="card-header">Categories</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        {% for category in categories %}
-                                        <li><a href="#!">{{ category }}</a></li>
+                                        {% for category in active_categories %}
+                                        <li><a href="/category/?category={{category}}">{{ category }}</a></li>
                                         {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% endif %}
+                    
                     <!-- Side widget-->
                     <div class="card mb-4">
                         <div class="card-header">Side Widget</div>
