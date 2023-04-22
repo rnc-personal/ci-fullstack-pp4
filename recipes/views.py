@@ -48,17 +48,27 @@ class RecipeByCategoryView(View):
 
 
 class RecipeByDifficultyView(View):
-    template_name = 'recipe_list.html'
+    template_name = 'recipes_by_difficulty.html'
 
     def get(self, request, *args, **kwargs):
         difficulty = request.GET.get('difficulty', None)
         active_categories = get_categories_with_recipes()
+        easy_recipes = Recipe.objects.filter(difficulty=1).order_by('-created_date')[:4]
+        novice_recipes = Recipe.objects.filter(difficulty=2).order_by('-created_date')[:4]
+        intermediate_recipes = Recipe.objects.filter(difficulty=3).order_by('-created_date')[:4]
+        tricky_recipes = Recipe.objects.filter(difficulty=4).order_by('-created_date')[:4]
+        expert_recipes = Recipe.objects.filter(difficulty=5).order_by('-created_date')[:4]
 
         recipes = Recipe.objects.filter(difficulty=difficulty)
         context = {
                 'difficulty': difficulty,
                 'recipes': recipes,
                 'active_categories': active_categories,
+                'easy_recipes': easy_recipes,
+                'novice_recipes': novice_recipes,
+                'intermediate_recipes': intermediate_recipes,
+                'tricky_recipes': tricky_recipes,
+                'expert_recipes': expert_recipes,
             }
 
         return render(request, self.template_name, context)

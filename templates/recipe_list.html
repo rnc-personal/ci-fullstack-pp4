@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load filters %}
 {% block content %}
 
 
@@ -48,6 +49,32 @@
                                     <ul class="list-unstyled mb-0">
                                         {% for category in active_categories %}
                                         <li><a href="/category/?category={{category}}">{{ category }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">Cooking Time</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        {% for recipe in recipes %}
+                                            {% if recipe.cooking_time_minutes|less_than:30 %}
+                                                <li><a href="/category/?category={{category}}">Under 30 mins</a></li>
+                                                {% elif recipe.cooking_time_minutes|less_than:60 %}
+                                                <li><a href="/category/?category={{category}}">Under 60 mins</a></li>
+                                                {% elif recipe.cooking_time_minutes|less_than:90 %}
+                                                <li><a href="/category/?category={{category}}">Under 90 mins</a></li>
+                                                {% elif recipe.cooking_time_minutes|less_than:120 %}
+                                                <li><a href="/category/?category={{category}}">Under 2 hours</a></li>
+                                                {% elif recipe.cooking_time_minutes|less_than:240 %}
+                                                <li><a href="/category/?category={{category}}">Under 4 hours</a></li>
+                                                {% elif recipe.cooking_time_minutes|less_than:1000 %}
+                                                <li><a href="/category/?category={{category}}">Dont Mind</a></li>
+                                                {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
