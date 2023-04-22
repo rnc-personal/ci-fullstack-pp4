@@ -36,8 +36,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="/recipes">All Recipes</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="/category">Recipes By Category</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/difficulty">Recipes By Difficulty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/time">Recipes By Cooking Time</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}
