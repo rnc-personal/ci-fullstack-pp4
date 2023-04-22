@@ -87,12 +87,13 @@ a:hover,
 }
 
 .card {
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
-    transform: scale(1.01);
+    transform: scale(1.1) translateZ(0);
     border: 2px solid #df7374;
+    will-change: transform;
 }
 
 /* Media Queries */
