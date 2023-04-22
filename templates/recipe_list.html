@@ -26,6 +26,23 @@
                     </article>
                     {% endfor %}
 
+                    {% for recipe in recipes %}
+                    <article class="mb-2">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- img tag 50% of the width of the parent container -->
+                                    <img class="img-fluid rounded-3" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+                                </div>
+                            <div class="col-md-6">
+                                <h1 class="display-4 fst-italic">{{ recipe.title }}</h1>
+                                <p class="lead my-3">{{ recipe.snippet }}</p>
+                                <a href="{{ recipe.slug }}" class="btn-lg fw-bold accent-dark text-decoration-none">Lets Get Started! 👩🏻‍🍳</a>
+                            </div>
+                          </div>
+                    </article>
+                    {% endfor %}
+
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">

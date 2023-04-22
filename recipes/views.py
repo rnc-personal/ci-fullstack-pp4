@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.http import Http404
 from .models import Recipe
 
 
@@ -19,6 +20,22 @@ class RecipeListView(generic.ListView):
         return render(request, self.template_name, context)
 
 
+class RecipeByCategoryView(View):
+    template_name = 'recipe_list.html'
+
+    def get(self, request, *args, **kwargs):
+        category = request.GET.get('category', None)
+
+        if category in dict(Recipe.category.field.choices):
+            recipes = Recipe.objects.filter(category=category)
+            context = {
+                'category': category,
+                'recipes': recipes,
+            }
+        else:
+            raise Http404("Invalid category")
+
+        return render(request, self.template_name, context)
 
 class RecipeDetailView(View):
     def get(self, request, slug, *args, **kwargs):
