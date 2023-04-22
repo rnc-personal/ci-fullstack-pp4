@@ -46,6 +46,31 @@ class RecipeByCategoryView(View):
 
         return render(request, self.template_name, context)
 
+class RecipeByTimeView(View):
+    template_name = 'recipe_list.html'
+
+    def get(self, request, *args, **kwargs):
+        time_lt = request.GET.get('cooking_time_minutes_lt', None)
+        time_gt = request.GET.get('cooking_time_minutes_gt', None)
+        active_categories = get_categories_with_recipes()
+
+        recipes = Recipe.objects.all()
+
+        if time_lt is not None:
+            recipes = recipes.filter(cooking_time_minutes__lt=time_lt)
+
+        if time_gt is not None:
+            recipes = recipes.filter(cooking_time_minutes__gt=time_gt)
+
+        context = {
+            'recipes': recipes,
+            'active_categories': active_categories,
+        }
+
+        return render(request, self.template_name, context)
+
+
+
 
 class RecipeByDifficultyView(View):
     template_name = 'recipes_by_difficulty.html'
