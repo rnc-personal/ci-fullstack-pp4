@@ -5,7 +5,7 @@ from .models import Recipe
 
 class RecipeListView(generic.ListView):
     template_name = 'recipe_list.html'
-    paginate_by = 6
+    paginate_by = 8
 
     def get(self, request):
         newest_recipes_list = Recipe.objects.filter(status=1).order_by('-created_date')
