@@ -9,12 +9,10 @@ class RecipeListView(generic.ListView):
     paginate_by = 8
 
     def get(self, request):
-        newest_recipes_list = Recipe.objects.filter(status=1).order_by('-created_date')
-        trending_recipes_list = Recipe.objects.all().order_by('-created_date')
-
+        recipes = Recipe.objects.filter(status=1).order_by('-created_date')
+    
         context = {
-            'newest_recipes_list': newest_recipes_list,
-            'trending_recipes_list': trending_recipes_list,
+            'recipes': recipes,
         }
 
         return render(request, self.template_name, context)
