@@ -32,7 +32,6 @@ class Recipe(models.Model):
     instructions = models.TextField()
     is_featured = models.BooleanField(default=False)
     cooking_time_minutes = models.IntegerField(default=0)
-    # add diffulty variablewhich is a number between 1 and 5
     difficulty = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], default=3)
 
     class Meta:
