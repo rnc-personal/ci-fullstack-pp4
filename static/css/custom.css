@@ -86,11 +86,11 @@ a:hover,
     color: var(--site-bg);
 }
 
-.card {
+.card.rounded-add {
     transition: transform 0.2s ease-in-out;
 }
 
-.card:hover {
+.card.rounded-add:hover {
     transform: scale(1.1) translateZ(0);
     border: 2px solid #df7374;
     will-change: transform;
