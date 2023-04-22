@@ -31,6 +31,7 @@ class Recipe(models.Model):
     ingredients = models.TextField()
     instructions = models.TextField()
     is_featured = models.BooleanField(default=False)
+    cooking_time_minutes = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['-created_date']
