@@ -24,6 +24,18 @@
                             <img class="img-fluid rounded" src="{{ recipe.image.url }}" alt="{{ recipe.title }}: {{ recipe.snippet }}" />
                             <figcaption class="text-align-left">All Images courtesy of Midjourney 5</figcaption>
                         </figure>
+                        <section class="mb-5">
+                            <div class="d-flex">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                    <p class="fs-6 mb-1">How Long does it take?</p>
+                                    <p class="fs-5 mb-4">{{ recipe.cooking_time_minutes }} Minutes</p>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                    <p class="fs-6 mb-1">How Difficult Is it?</p>
+                                    <p class="fs-5 mb-4">{{ recipe.cooking_time_minutes }} Minutes</p>
+                                </div>
+                            </div>
+                        </section>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">{{ recipe.ingredients|striptags }}</p>
