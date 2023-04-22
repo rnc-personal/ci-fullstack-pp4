@@ -63,17 +63,17 @@
                                     <ul class="list-unstyled mb-0">
                                         {% for recipe in recipes %}
                                             {% if recipe.cooking_time_minutes|less_than:30 %}
-                                                <li><a href="/category/?category={{category}}">Under 30 mins</a></li>
+                                                <li><a href="/time/?cooking_time_minutes_lt=30">Under 30 mins</a></li>
                                                 {% elif recipe.cooking_time_minutes|less_than:60 %}
-                                                <li><a href="/category/?category={{category}}">Under 60 mins</a></li>
+                                                <li><a href="/time/?cooking_time_minutes_lt=60">Under 60 mins</a></li>
                                                 {% elif recipe.cooking_time_minutes|less_than:90 %}
-                                                <li><a href="/category/?category={{category}}">Under 90 mins</a></li>
+                                                <li><a href="/time/?cooking_time_minutes_lt=90">Under 90 mins</a></li>
                                                 {% elif recipe.cooking_time_minutes|less_than:120 %}
-                                                <li><a href="/category/?category={{category}}">Under 2 hours</a></li>
+                                                <li><a href="/time/?cooking_time_minutes_lt=120">Under 2 hours</a></li>
                                                 {% elif recipe.cooking_time_minutes|less_than:240 %}
-                                                <li><a href="/category/?category={{category}}">Under 4 hours</a></li>
+                                                <li><a href="/time/?cooking_time_minutes_lt=240">Under 4 hours</a></li>
                                                 {% elif recipe.cooking_time_minutes|less_than:1000 %}
-                                                <li><a href="/category/?category={{category}}">Dont Mind</a></li>
+                                                <li><a href="/time/">Dont Mind</a></li>
                                                 {% endif %}
                                         {% endfor %}
                                     </ul>
