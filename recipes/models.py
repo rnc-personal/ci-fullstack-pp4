@@ -40,6 +40,9 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+    def average_recipe_score(self):
+        return self.user_recipe_score.aggregate()
+
     # Reference this in Readme as had to look this up.
     # def save(self, *args, **kwargs):
     #         if self.is_featured:
