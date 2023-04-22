@@ -3,7 +3,7 @@
     --highlight-light: #FDE0DE;
     --site-bg: #fafafa;
     --site-text: #1E1E1E;
-    --rounded-corners-all: 1.25rem;
+    --rounded-corners-all: 1.35rem;
     --rounded-corners-top: 1.25rem;
 }
 
@@ -86,6 +86,14 @@ a:hover,
     color: var(--site-bg);
 }
 
+.card {
+    transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    border: 2px solid #df7374;
+}
 
 /* Media Queries */
 
