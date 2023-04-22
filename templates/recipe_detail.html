@@ -105,15 +105,16 @@
                         </div>
                     </div>
                     <!-- Categories widget-->
+                    {% if categories %}
                     <div class="card mb-4">
                         <div class="card-header">Categories</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        {% for category in categories %}
+                                        <li><a href="#!">{{category}}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
@@ -126,6 +127,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                     <!-- Side widget-->
                     <div class="card mb-4">
                         <div class="card-header">Side Widget</div>
