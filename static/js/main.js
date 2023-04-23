@@ -5,3 +5,13 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+// Switch FA Icons based on mobile menu state
+
+document.addEventListener('DOMContentLoaded', function() {
+    const i = document.querySelector('.fa-solid');
+    i.addEventListener('click', function() {
+        i.classList.toggle('fa-times');
+        i.classList.toggle('fa-bars');
+    });
+});
