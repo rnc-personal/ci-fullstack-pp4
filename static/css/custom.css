@@ -80,7 +80,43 @@ li>a:hover {
     top: 0px;
 }
 
+.score-container {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #f8f9fa;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid var(--highlight-dark);    
+}
 
+
+.recipe-scores {
+    font-weight: 600;
+    margin: 0 0 5px 0 !important;
+}
+.lowest-score {
+    color: #cf7dff
+}
+
+.low-score {
+    color: #df7374;
+}
+
+.med-score {
+    color: #ff9e2f;
+}
+
+.high-score {
+    color: #8cff5e ;
+}
+
+.top-score {
+    color: rgb(0, 174, 255);
+}
 
 /* Overrides */
 .navbar-toggler:focus {

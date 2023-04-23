@@ -27,31 +27,53 @@
                         </figure>
                         <section class="mb-5">
                             <div class="d-flex">
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                    <p class="fs-6 mb-1">How Long does it take?</p>
-                                    <p class="fs-5 mb-4">{{ recipe.cooking_time_minutes }} Minutes</p>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
+                                    <p class="fs-6 mb-1">How Many Minutes does it take?</p>
+                                    <div class="score-container">
+                                        {% if recipe.cooking_time_minutes < 10 %}
+                                        <p class="fs-5 mb-4 recipe-scores top-score">{{ recipe.cooking_time_minutes }}</p>
+                                        {% elif recipe.cooking_time_minutes > 10 and recipe.cooking_time_minutes <= 30 %}
+                                        <p class="fs-5 mb-4 recipe-scores high-score">{{ recipe.cooking_time_minutes }}</p>
+                                        {% elif recipe.cooking_time_minutes > 30 and recipe.cooking_time_minutes <= 60 %}
+                                        <p class="fs-5 mb-4 recipe-scores med-score">{{ recipe.cooking_time_minutes }}</p>
+                                        {% elif recipe.cooking_time_minutes > 60 and recipe.cooking_time_minutes <= 90 %}
+                                        <p class="fs-5 mb-4 recipe-scores low-score">{{ recipe.cooking_time_minutes }}</p>
+                                        {% elif recipe.cooking_time_minutes > 90 %}
+                                        <p class="fs-5 mb-4 recipe-scores lowest-score">{{ recipe.cooking_time_minutes }}</p>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
                                     <p class="fs-6 mb-1">How Difficult Is it?</p>
-                                    <p class="fs-5 mb-4">{{ recipe.difficulty }} / 5</p>
+                                    <div class="score-container">
+                                        {% if recipe.difficulty < 2 %}
+                                        <p class="fs-5 mb-4 recipe-scores high-score">{{ recipe.difficulty }} / 5</p>
+                                        {% elif recipe.difficulty > 2 and recipe.difficulty < 5 %}
+                                        <p class="fs-5 mb-4 recipe-scores med-score">{{ recipe.difficulty }} / 5</p>
+                                        {% elif recipe.difficulty == 5 %}
+                                        <p class="fs-5 mb-4 recipe-scores low-score">{{ recipe.difficulty }} / 5</p>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
                                     <p class="fs-6 mb-1">How Did others Rate our Recipe?</p>
                                     {% if avg_rating == 0 %}
                                     <p class="fs-7 mb-4">
                                         This recipe has not been rated yet. Why not try it it out and let us know below?
                                     </p>
                                     {% endif %}
-
+                                    {% if avg_rating > 0 %}
+                                    <div class="score-container">
                                         {% if avg_rating > 0 and avg_rating <= 4 %}
-                                        <p class="fs-5 mb-4 low-score">{{ avg_rating|floatformat }}</p>
+                                        <p class="fs-5 mb-4 low-score recipe-scores">{{ avg_rating|floatformat }}</p>
                                         {% elif avg_rating > 4 and avg_rating <= 7 %}
-                                        <p class="fs-5 mb-4 med-score">{{ avg_rating|floatformat }}</p>
+                                        <p class="fs-5 mb-4 med-score recipe-scores">{{ avg_rating|floatformat }}</p>
                                         {% elif avg_rating > 7 and avg_rating <= 9 %}
-                                        <p class="fs-5 mb-4 high-score">{{ avg_rating|floatformat }}</p>
-                                        {% elif avg_rating > 9 %}<p class="fs-5 mb-4 top-score">{{ avg_rating|floatformat }}</p>
+                                        <p class="fs-5 mb-4 high-score recipe-scores">{{ avg_rating|floatformat }}</p>
+                                        {% elif avg_rating > 9 %}<p class="fs-5 mb-4 top-score recipe-scores">{{ avg_rating|floatformat }}</p>
                                         {% endif %}
-                                    
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </section>
