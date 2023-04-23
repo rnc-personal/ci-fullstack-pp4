@@ -164,3 +164,13 @@ class HomeRecipesView(generic.ListView):
 
         return render(request, self.template_name, context)
 
+class SearchResultsView(ListView):
+    model = Recipe
+    template_name ='recipe_list.html'
+
+    def get_search_query(self):
+        query = self.request.GET.get('q')
+        if query:
+            return self.model.objects.filter(Q(title__icontains=query) | Q(ingredients__icontains=query) | Q(instructions__icontains=query))
+        else:
+            return self.model.objects.none()
