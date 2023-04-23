@@ -52,6 +52,7 @@
                     </article>
                     <!-- Comments section-->
                     <section class="mb-5">
+                        <h3 class="fw-bolder mb-3">Leave A Comment</h3>
                         <div class="card bg-light">
                             <div class="card-body">
                                 <!-- Comment form-->
@@ -61,18 +62,30 @@
                                 </div>
                                 {% else %}
                                 {% if user.is_authenticated %}
-                
+                                
                                 <h3>Leave a comment:</h3>
                                 <p>Posting as: {{ user.username }}</p>
-                                <form method="post" style="margin-top: 1.3em;">
+                                <form method="post" class="d-flex flex-column" style="margin-top: 1.3em;">
                                     {{ comment_form | crispy }}
                                     {% csrf_token %}
-                                    <button type="submit" class="btn accent-dark btn-lg">Submit</button>
+                                    <button type="submit" class="btn accent-dark btn-lg mt-2">Submit</button>
                                 </form>
                                 {% endif %}
                                 {% endif %}
                             </div>
                         </div>
+                    </section>
+                        <section class="mt-5">
+                        <h3 class="fw-bolder mb-3">Comments</h3>
+                        {% for comment in comments %}
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">{{ comment.user }}</div>
+                                <p>{{ comment.body }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </section>
                 </div>
                 <!-- Side widgets-->
