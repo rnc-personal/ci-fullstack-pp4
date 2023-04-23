@@ -43,40 +43,25 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Categories widget-->
-                    
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        {% for category in active_categories %}
-                                        <li><a href="/category/?category={{category}}">{{ category }}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="card mb-4">
                         <div class="card-header">Cooking Time</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        {% for recipe in recipes %}
-                                            {% if recipe.cooking_time_minutes|less_than:30 %}
+                                        {% for result in results %}
+                                            {% if result.cooking_time_minutes|less_than:30 %}
                                                 <li><a href="/time/?cooking_time_minutes_lt=30">Under 30 mins</a></li>
-                                                {% elif recipe.cooking_time_minutes|less_than:60 %}
+                                                {% elif result.cooking_time_minutes|less_than:60 %}
                                                 <li><a href="/time/?cooking_time_minutes_lt=60">Under 60 mins</a></li>
-                                                {% elif recipe.cooking_time_minutes|less_than:90 %}
+                                                {% elif result.cooking_time_minutes|less_than:90 %}
                                                 <li><a href="/time/?cooking_time_minutes_lt=90">Under 90 mins</a></li>
-                                                {% elif recipe.cooking_time_minutes|less_than:120 %}
+                                                {% elif result.cooking_time_minutes|less_than:120 %}
                                                 <li><a href="/time/?cooking_time_minutes_lt=120">Under 2 hours</a></li>
-                                                {% elif recipe.cooking_time_minutes|less_than:240 %}
+                                                {% elif result.cooking_time_minutes|less_than:240 %}
                                                 <li><a href="/time/?cooking_time_minutes_lt=240">Under 4 hours</a></li>
-                                                {% elif recipe.cooking_time_minutes|less_than:1000 %}
+                                                {% elif result.cooking_time_minutes|less_than:1000 %}
                                                 <li><a href="/time/">Dont Mind</a></li>
                                                 {% endif %}
                                         {% endfor %}

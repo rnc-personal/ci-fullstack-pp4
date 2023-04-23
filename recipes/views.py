@@ -176,3 +176,4 @@ class SearchResultsView(ListView):
             return self.model.objects.filter(Q(title__icontains=query) | Q(ingredients__icontains=query) | Q(instructions__icontains=query))
         else:
             return self.model.objects.none()
+
