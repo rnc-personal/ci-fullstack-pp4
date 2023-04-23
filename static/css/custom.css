@@ -152,6 +152,16 @@ li>a:hover {
 
 /* Media Queries */
 
+@media screen and (max-width:1200px) {
+    .scores {
+        display: flex!important;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem 0;
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 991px) {
     .logo-wrapper {
         width: 50px;
