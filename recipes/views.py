@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Count
+from django.db.models import Count, Avg
 from django.views import generic, View
 from django.http import Http404
 from .models import Recipe
@@ -107,6 +107,7 @@ class RecipeDetailView(View):
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('-created_date')
         active_categories = get_categories_with_recipes()
+        avg_rating = recipe.comments.filter(approved=True).aggregate(Avg('rating'))['rating__avg'] or 0
 
         return render(
             request,
@@ -117,6 +118,7 @@ class RecipeDetailView(View):
                 'comments': comments,
                 'commented': False,
                 'comment_form': CommentForm(),
+                'avg_rating': avg_rating,
             },
         )
 
