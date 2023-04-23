@@ -37,7 +37,21 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <p class="fs-6 mb-1">How Did others Rate our Recipe?</p>
-                                    <p class="fs-5 mb-4">{{ avg_rating|floatformat }} </p>
+                                    {% if avg_rating == 0 %}
+                                    <p class="fs-7 mb-4">
+                                        This recipe has not been rated yet. Why not try it it out and let us know below?
+                                    </p>
+                                    {% endif %}
+
+                                        {% if avg_rating > 0 and avg_rating <= 4 %}
+                                        <p class="fs-5 mb-4 low-score">{{ avg_rating|floatformat }}</p>
+                                        {% elif avg_rating > 4 and avg_rating <= 7 %}
+                                        <p class="fs-5 mb-4 med-score">{{ avg_rating|floatformat }}</p>
+                                        {% elif avg_rating > 7 and avg_rating <= 9 %}
+                                        <p class="fs-5 mb-4 high-score">{{ avg_rating|floatformat }}</p>
+                                        {% elif avg_rating > 9 %}<p class="fs-5 mb-4 top-score">{{ avg_rating|floatformat }}</p>
+                                        {% endif %}
+                                    
                                 </div>
                             </div>
                         </section>
