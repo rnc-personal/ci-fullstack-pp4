@@ -3,182 +3,200 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
+{% load static %}
 
-        <!-- Page content-->
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">{{ recipe.title }}</h1>
-                            <p class="fw-bold">{{ recipe.snippet }}</p>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ recipe.get_category_display }}</a>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on {{ recipe.created_date }}</div>
-                        </header>
-                        <!-- Preview image figure-->
-                        <figure class="mb-4">
-                            <img class="img-fluid rounded" src="{{ recipe.image.url }}" alt="{{ recipe.title }}: {{ recipe.snippet }}" />
-                            <figcaption class="text-align-left">All Images courtesy of Midjourney 5</figcaption>
-                        </figure>
-                        <section class="mb-5">
-                            <div class="d-flex">
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
-                                    <p class="fs-6 mb-1">How Many Minutes does it take?</p>
-                                    <div class="score-container">
-                                        {% if recipe.cooking_time_minutes < 10 %}
-                                        <p class="fs-5 mb-4 recipe-scores top-score">{{ recipe.cooking_time_minutes }}</p>
-                                        {% elif recipe.cooking_time_minutes > 10 and recipe.cooking_time_minutes <= 30 %}
-                                        <p class="fs-5 mb-4 recipe-scores high-score">{{ recipe.cooking_time_minutes }}</p>
-                                        {% elif recipe.cooking_time_minutes > 30 and recipe.cooking_time_minutes <= 60 %}
-                                        <p class="fs-5 mb-4 recipe-scores med-score">{{ recipe.cooking_time_minutes }}</p>
-                                        {% elif recipe.cooking_time_minutes > 60 and recipe.cooking_time_minutes <= 90 %}
-                                        <p class="fs-5 mb-4 recipe-scores low-score">{{ recipe.cooking_time_minutes }}</p>
-                                        {% elif recipe.cooking_time_minutes > 90 %}
-                                        <p class="fs-5 mb-4 recipe-scores lowest-score">{{ recipe.cooking_time_minutes }}</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
-                                    <p class="fs-6 mb-1">How Difficult Is it?</p>
-                                    <div class="score-container">
-                                        {% if recipe.difficulty < 2 %}
-                                        <p class="fs-5 mb-4 recipe-scores high-score">{{ recipe.difficulty }} / 5</p>
-                                        {% elif recipe.difficulty > 2 and recipe.difficulty < 5 %}
-                                        <p class="fs-5 mb-4 recipe-scores med-score">{{ recipe.difficulty }} / 5</p>
-                                        {% elif recipe.difficulty == 5 %}
-                                        <p class="fs-5 mb-4 recipe-scores low-score">{{ recipe.difficulty }} / 5</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
-                                    <p class="fs-6 mb-1">How Did others Rate our Recipe?</p>
-                                    {% if avg_rating == 0 %}
-                                    <p class="fs-7 mb-4">
-                                        This recipe has not been rated yet. Why not try it it out and let us know below?
-                                    </p>
-                                    {% endif %}
-                                    {% if avg_rating > 0 %}
-                                    <div class="score-container">
-                                        {% if avg_rating > 0 and avg_rating <= 4 %}
-                                        <p class="fs-5 mb-4 low-score recipe-scores">{{ avg_rating|floatformat }}</p>
-                                        {% elif avg_rating > 4 and avg_rating <= 7 %}
-                                        <p class="fs-5 mb-4 med-score recipe-scores">{{ avg_rating|floatformat }}</p>
-                                        {% elif avg_rating > 7 and avg_rating <= 9 %}
-                                        <p class="fs-5 mb-4 high-score recipe-scores">{{ avg_rating|floatformat }}</p>
-                                        {% elif avg_rating > 9 %}<p class="fs-5 mb-4 top-score recipe-scores">{{ avg_rating|floatformat }}</p>
-                                        {% endif %}
-                                    </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Post content-->
-                        <section class="mb-5">
-                            <p class="fs-5 mb-4">{{ recipe.ingredients|striptags }}</p>
-                        </section>
-                        <hr>
-                        <section class="mb-5">
-                            <p class="fs-5 mb-4">{{ recipe.instructions|striptags }}</p>
-                        </section>
-                    </article>
-                    <!-- Comments section-->
-                    <section class="mb-5">
-                        <h3 class="fw-bolder mb-3">Leave A Comment</h3>
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <!-- Comment form-->
-                                {% if commented %}
-                                <div class="alert alert-success" role="alert">
-                                    Your comment is awaiting approval
-                                </div>
-                                {% else %}
-                                {% if user.is_authenticated %}
-                                
-                                <h3>Leave a comment:</h3>
-                                <p>Posting as: {{ user.username }}</p>
-                                <form method="post" class="d-flex flex-column" style="margin-top: 1.3em;">
-                                    {{ comment_form | crispy }}
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn accent-dark btn-lg mt-2">Submit</button>
-                                </form>
-                                {% endif %}
+<!-- Page content-->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{ recipe.title }}</h1>
+                    <p class="fw-bold">{{ recipe.snippet }}</p>
+                    <!-- Post categories-->
+                    <a class="badge bg-secondary text-decoration-none link-light"
+                        href="#!">{{ recipe.get_category_display }}</a>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Posted on {{ recipe.created_date }}</div>
+                </header>
+                <!-- Preview image figure-->
+                <figure class="mb-4">
+                    <img class="img-fluid rounded" src="{{ recipe.image.url }}"
+                        alt="{{ recipe.title }}: {{ recipe.snippet }}" />
+                    <figcaption class="text-align-left">All Images courtesy of Midjourney 5</figcaption>
+                </figure>
+                <section class="mb-5">
+                    <div class="d-flex">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
+                            <p class="fs-6 mb-1">How Many Minutes does it take?</p>
+                            <div class="score-container">
+                                {% if recipe.cooking_time_minutes < 10 %}
+                                <p class="fs-5 mb-4 recipe-scores top-score">{{ recipe.cooking_time_minutes }}</p>
+                                {% elif recipe.cooking_time_minutes > 10 and recipe.cooking_time_minutes <= 30 %}
+                                <p class="fs-5 mb-4 recipe-scores high-score">{{ recipe.cooking_time_minutes }}</p>
+                                {% elif recipe.cooking_time_minutes > 30 and recipe.cooking_time_minutes <= 60 %}
+                                <p class="fs-5 mb-4 recipe-scores med-score">{{ recipe.cooking_time_minutes }}</p>
+                                {% elif recipe.cooking_time_minutes > 60 and recipe.cooking_time_minutes <= 90 %}
+                                <p class="fs-5 mb-4 recipe-scores low-score">{{ recipe.cooking_time_minutes }}</p>
+                                {% elif recipe.cooking_time_minutes > 90 %}
+                                <p class="fs-5 mb-4 recipe-scores lowest-score">{{ recipe.cooking_time_minutes }}</p>
                                 {% endif %}
                             </div>
                         </div>
-                    </section>
-                        {% if comments.count > 0 %}
-                        <section class="mt-5">
-                        <h3 class="fw-bolder mb-3">Comments</h3>
-                        {% for comment in comments %}
-                        <div class="d-flex mb-3">
-                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
-                            <div class="ms-3">
-                                <div class="fw-bold">{{ comment.user }}</div>
-                                <p>{{ comment.body }}</p>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
+                            <p class="fs-6 mb-1">How Difficult Is it?</p>
+                            <div class="score-container">
+                                {% if recipe.difficulty < 2 %}
+                                <p class="fs-5 mb-4 recipe-scores high-score">{{ recipe.difficulty }} / 5</p>
+                                {% elif recipe.difficulty > 2 and recipe.difficulty < 5 %}
+                                <p class="fs-5 mb-4 recipe-scores med-score">{{ recipe.difficulty }} / 5</p>
+                                {% elif recipe.difficulty == 5 %}
+                                <p class="fs-5 mb-4 recipe-scores low-score">{{ recipe.difficulty }} / 5</p>
+                                {% endif %}
                             </div>
                         </div>
-                        {% endfor %}
-                    </section>
-                    {% endif %}
-                </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        {% for category in active_categories %}
-                                        <li><a href="/category/?category={{category}}">{{ category }}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Mamas Notes</div>
-                        <div class="card-body">
-                            {% if recipe.difficulty == 1 %}
-                            <p>Easy Recipe</p>
-                            <img src="" alt="">
-                            {% elif recipe.difficulty == 2 %}
-                            <p>Intermediate Recipe</p>
-                            <img src="" alt="">
-                            {% elif recipe.difficulty == 3 %}
-                            <p>Medium Recipe</p>
-                            <img src="" alt="">
-                            {% elif recipe.difficulty == 4 %}
-                            <p>Expert Recipe</p>
-                            <img src="" alt="">
-                            {% elif recipe.difficulty == 5 %}
-                            <p>Pro Recipe</p>
-                            <img src="" alt="">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 d-flex flex-column align-items-center">
+                            <p class="fs-6 mb-1">How Did others Rate our Recipe?</p>
+                            {% if avg_rating == 0 %}
+                            <p class="fs-7 mb-4">
+                                This recipe has not been rated yet. Why not try it it out and let us know below?
+                            </p>
                             {% endif %}
+                            {% if avg_rating > 0 %}
+                            <div class="score-container">
+                                {% if avg_rating > 0 and avg_rating <= 4 %}
+                                <p class="fs-5 mb-4 low-score recipe-scores">{{ avg_rating|floatformat }}</p>
+                                {% elif avg_rating > 4 and avg_rating <= 7 %}
+                                <p class="fs-5 mb-4 med-score recipe-scores">{{ avg_rating|floatformat }}</p>
+                                {% elif avg_rating > 7 and avg_rating <= 9 %}
+                                <p class="fs-5 mb-4 high-score recipe-scores">{{ avg_rating|floatformat }}</p>
+                                {% elif avg_rating > 9 %}<p class="fs-5 mb-4 top-score recipe-scores">
+                                    {{ avg_rating|floatformat }}</p>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                <!-- Post content-->
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{ recipe.ingredients|striptags }}</p>
+                </section>
+                <hr>
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{ recipe.instructions|striptags }}</p>
+                </section>
+            </article>
+            <!-- Comments section-->
+            <section class="mb-5">
+                <h3 class="fw-bolder mb-3">Leave A Comment</h3>
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <!-- Comment form-->
+                        {% if commented %}
+                        <div class="alert alert-success" role="alert">
+                            Your comment is awaiting approval
+                        </div>
+                        {% else %}
+                        {% if user.is_authenticated %}
+
+                        <h3>Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post" class="d-flex flex-column" style="margin-top: 1.3em;">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn accent-dark btn-lg mt-2">Submit</button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+            {% if comments.count > 0 %}
+            <section class="mt-5">
+                <h3 class="fw-bolder mb-3">Comments</h3>
+                {% for comment in comments %}
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><img class="rounded-circle"
+                            src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                    <div class="ms-3">
+                        <div class="fw-bold">{{ comment.user }}</div>
+                        <p>{{ comment.body }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+            {% endif %}
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..."
+                            aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                {% for category in active_categories %}
+                                <li><a href="/category/?category={{category}}">{{ category }}</a></li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Mamas Notes</div>
+                <div class="card-body">
+                    {% if recipe.difficulty == 1 %}
+                    <span class="fs-5 top-score">Easy Recipe</span>
+                        <p>Suitable for children or something that needs very little prep.</p>
+                        <p>Try experimenting with it and come up with your own variations!</p>
+                    <img src="{% static 'img/easy-apple.png' %}" class="mama-character">
+                    {% elif recipe.difficulty == 2 %}
+                    <span class="fs-5 high-score">Intermediate Recipe.</span>
+                        <p>Make sure you prepare our ingredients first!</p>
+                        <p>Just follow the steps and Cooking Mama is sure you will do great.</p>
+                    <img src="{% static 'img/medium-banana.png' %}" class="mama-character">
+                    {% elif recipe.difficulty == 3 %}
+                    <span class="fs-5 med-score">Medium Recipe</span>
+                        <p>Will need some additional prep or time.</p>
+                        <p>Walk through the steps forst in your head and try to have things prepped in advance. Good Luck!</p>
+                    <img src="{% static 'img/intermediate-beefpie.png' %}" class="mama-character">
+                    {% elif recipe.difficulty == 4 %}
+                    <span class="fs-5 low-score">Expert Recipe</span>
+                        <p>Are you ready?</p>
+                        <p>If you are trying this out, you must have some experience. As always, take time to do your prep
+                            and follow each step carefully!</p>
+                    <img src="{% static 'img/tricky-carrot.png' %}" class="mama-character">
+                    {% elif recipe.difficulty == 5 %}
+                    <span class="fs-5 lowest-score">Pro Recipe</span>
+                        <p>Wow, this one looks hard!</p>
+                        <p>Just kidding... This is one of the toughest recipes though. Pay attention to the instructions and
+                            the details and by the end you will be a Cooking Mama too!</p>
+                    <img src="{% static 'img/expert-tomato.png' %}" class="mama-character">
+                    {% endif %}
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 
-  
+
 
 {% endblock %}

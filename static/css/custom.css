@@ -118,6 +118,11 @@ li>a:hover {
     color: rgb(0, 174, 255);
 }
 
+.mama-character {
+    max-width: 60%;
+    margin-left: 40%;
+}
+
 /* Overrides */
 .navbar-toggler:focus {
     box-shadow: none;
