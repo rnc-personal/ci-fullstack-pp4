@@ -75,6 +75,7 @@
                             </div>
                         </div>
                     </section>
+                        {% if comments.count > 0 %}
                         <section class="mt-5">
                         <h3 class="fw-bolder mb-3">Comments</h3>
                         {% for comment in comments %}
@@ -87,6 +88,7 @@
                         </div>
                         {% endfor %}
                     </section>
+                    {% endif %}
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
