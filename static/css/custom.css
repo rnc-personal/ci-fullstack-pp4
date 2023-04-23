@@ -101,6 +101,12 @@ li>a:hover {
     will-change: transform;
 }
 
+.show {
+    top: 100%;
+    right: 0;
+    margin-top: -0.125rem;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 991px) {
