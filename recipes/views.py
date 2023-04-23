@@ -3,6 +3,7 @@ from django.db.models import Count
 from django.views import generic, View
 from django.http import Http404
 from .models import Recipe
+from .forms import CommentForm
 
 
 # This is for checking which categories are empty / have a recipe attached
@@ -114,6 +115,7 @@ class RecipeDetailView(View):
                 'recipe': recipe,
                 'comments': comments,
                 'active_categories': active_categories,
+                'comment_form': CommentForm(),
             },
         )
 
