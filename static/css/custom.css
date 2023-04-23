@@ -99,23 +99,23 @@ li>a:hover {
     margin: 0 0 5px 0 !important;
 }
 .lowest-score {
-    color: #cf7dff
+    color: #8618c6
 }
 
 .low-score {
-    color: #df7374;
+    color: #d50608;
 }
 
 .med-score {
-    color: #ff9e2f;
+    color: #c84f09;
 }
 
 .high-score {
-    color: #8cff5e ;
+    color: #268102 ;
 }
 
 .top-score {
-    color: rgb(0, 174, 255);
+    color: #0076ad;
 }
 
 .mama-character {
