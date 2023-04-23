@@ -23,102 +23,79 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg accent-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{% static 'img/logo-web.png' %}" alt="Logo" class="logo-wrapper">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <svg role="img" aria-hidden="true" focusable="false" data-prefix="far" data-icon="bars" class="svg-inline--fa fa-bars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 88C0 74.7 10.7 64 24 64H424c13.3 0 24 10.7 24 24s-10.7 24-24 24H24C10.7 112 0 101.3 0 88zM0 248c0-13.3 10.7-24 24-24H424c13.3 0 24 10.7 24 24s-10.7 24-24 24H24c-13.3 0-24-10.7-24-24zM448 408c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H424c13.3 0 24 10.7 24 24z" data-darkreader-inline-fill="" style="--darkreader-inline-fill:currentColor;"></path></svg>
-                </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/recipes">All Recipes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/category">Recipes By Category</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/difficulty">Recipes By Difficulty</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/time">Recipes By Cooking Time</a></li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Register / Login</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-
     <nav class="navbar navbar-expand-lg accent-dark navbar-dark shadow">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <img src="{% static 'img/logo-web.png' %}" alt="Logo" class="logo-wrapper">
             </a>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
-            <div class="hamburger-toggle">
-              <div class="hamburger">
-                <i class="fa-solid fa-bars"></i>
-              </div>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar-content">
+                <div class="hamburger-toggle">
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/recipes">All Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-mega position-static">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside">Megamenu</a>
+                        <div class="dropdown-menu shadow">
+                            <div class="mega-content px-4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                            <h5>Title</h5>
+                                            <div class="list-group">
+                                                <a class="list-group-item" href="#">Mega Menu Link</a>
+                                                <a class="list-group-item" href="#">Mega Menu Link</a>
+                                                <a class="list-group-item" href="#">Mega Menu Link</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                            <h5>Card Title</h5>
+                                            <div class="card">
+                                                <img src="img/banner-image.jpg" class="img-fluid" alt="image">
+                                                <div class="card-body">
+                                                    <p class="card-text">Description goes here...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-md-3 py-4">
+                                            <h5>Title</h5>
+                                            <p>Description goes here...</p>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-3 py-4">
+                                            <h5>Title</h5>
+                                            <div class="list-group">
+                                                <a class="list-group-item" href="#">Menu Link</a>
+                                                <a class="list-group-item" href="#">Menu Link</a>
+                                                <a class="list-group-item" href="#">Menu Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="input-group">
+                        <input class="form-control border-0 mr-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn accent-light text-dark border-0" type="submit">Search</button>
+                    </div>
+                </form>
             </div>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
-            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/recipes">All Recipes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown dropdown-mega position-static">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Megamenu</a>
-                <div class="dropdown-menu shadow">
-                  <div class="mega-content px-4">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-12 col-sm-4 col-md-3 py-4">
-                          <h5>Title</h5>
-                          <div class="list-group">
-                            <a class="list-group-item" href="#">Mega Menu Link</a>
-                            <a class="list-group-item" href="#">Mega Menu Link</a>
-                            <a class="list-group-item" href="#">Mega Menu Link</a>
-                          </div>
-                        </div>
-                        <div class="col-12 col-sm-4 col-md-3 py-4">
-                          <h5>Card Title</h5>
-                          <div class="card">
-                      <img src="img/banner-image.jpg" class="img-fluid" alt="image">
-                      <div class="card-body">
-                        <p class="card-text">Description goes here...</p>
-                      </div>
-                    </div>
-                        </div>
-                        <div class="col-12 col-sm-4 col-md-3 py-4">
-                          <h5>Title</h5>
-                            <p>Description goes here...</p>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-3 py-4">
-                          <h5>Title</h5>
-                          <div class="list-group">
-                            <a class="list-group-item" href="#">Menu Link</a>
-                            <a class="list-group-item" href="#">Menu Link</a>
-                            <a class="list-group-item" href="#">Menu Link</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <form class="d-flex">
-                <div class="input-group">
-                    <input class="form-control border-0 mr-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn accent-light text-dark border-0" type="submit">Search</button>
-                </div>
-            </form>
-          </div>
         </div>
-      </nav>
+    </nav>
 
     <main class="flex-shrink-0 main-bg">
 
@@ -126,10 +103,12 @@
         <!-- Content Goes here -->
         {% endblock content %}
     </main>
-    
+
     <!-- Footer-->
     <footer class="py-5 accent-dark">
-        <div class="container"><p class="m-0 text-center">Copyright &copy; Your Website 2023</p></div>
+        <div class="container">
+            <p class="m-0 text-center">Copyright &copy; Your Website 2023</p>
+        </div>
     </footer>
 
 </body>
