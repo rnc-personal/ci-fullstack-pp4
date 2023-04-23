@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count, Avg, Q
 from django.views import generic, View
+from django.views.generic import ListView
 from django.http import Http404
 from .models import Recipe
 from .forms import CommentForm
@@ -166,9 +167,10 @@ class HomeRecipesView(generic.ListView):
 
 class SearchResultsView(ListView):
     model = Recipe
-    template_name ='recipe_list.html'
+    template_name = 'search_results.html'
+    context_object_name = 'results'
 
-    def get_search_query(self):
+    def get_queryset(self):
         query = self.request.GET.get('q')
         if query:
             return self.model.objects.filter(Q(title__icontains=query) | Q(ingredients__icontains=query) | Q(instructions__icontains=query))
