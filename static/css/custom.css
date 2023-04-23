@@ -154,7 +154,6 @@ li>a:hover {
 
 @media screen and (max-width:1200px) {
     .scores {
-        display: flex!important;
         flex-direction: column;
         align-items: center;
         gap: 1.2rem 0;
