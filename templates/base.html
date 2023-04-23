@@ -86,13 +86,15 @@
                         </div>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <div class="d-flex">
                     <div class="input-group">
-                        <input class="form-control border-0 mr-2" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <button class="btn accent-light text-dark border-0" type="submit">Search</button>
+                        <form method="GET" class="d-flex rounded-input" action="{% url 'search_results' %}">
+                            <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}"
+                                class="form-control border-0 mr-2" />
+                            <button type="submit" class="btn accent-light text-dark border-0">Search</button>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </nav>
