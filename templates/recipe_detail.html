@@ -138,9 +138,9 @@
                 <div class="card-header">Search</div>
                 <div class="card-body">
                     <div class="input-group">
-                        <form method="GET" action="{% url 'search_results' %}">
-                            <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}" />
-                            <button type="submit">Search</button>
+                        <form method="GET" class="d-flex rounded-input" action="{% url 'search_results' %}">
+                            <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}" class="form-control border-0 mr-2"/>
+                            <button type="submit" class="btn accent-light text-dark border-0">Search</button>
                         </form>
                         
                         <!-- <button class="btn btn-primary" id="button-search" type="button">Go!</button> -->

@@ -150,6 +150,18 @@ li>a:hover {
     z-index: 3 !important;
 }
 
+.rounded-input {
+    border: 2px solid var(--highlight-dark);
+    border-radius: 5px;
+}
+
+.form-control:focus-visible, .form-control:focus, input:focus-visible {
+    outline: none !important;
+    outline-color: transparent;
+    outline-width: 0px;
+    box-shadow: none;
+}
+
 /* Media Queries */
 
 @media screen and (max-width:1200px) {
