@@ -155,8 +155,25 @@
                     </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                        <div class="card-header">Mamas Notes</div>
+                        <div class="card-body">
+                            {% if recipe.difficulty == 1 %}
+                            <p>Easy Recipe</p>
+                            <img src="" alt="">
+                            {% elif recipe.difficulty == 2 %}
+                            <p>Intermediate Recipe</p>
+                            <img src="" alt="">
+                            {% elif recipe.difficulty == 3 %}
+                            <p>Medium Recipe</p>
+                            <img src="" alt="">
+                            {% elif recipe.difficulty == 4 %}
+                            <p>Expert Recipe</p>
+                            <img src="" alt="">
+                            {% elif recipe.difficulty == 5 %}
+                            <p>Pro Recipe</p>
+                            <img src="" alt="">
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
