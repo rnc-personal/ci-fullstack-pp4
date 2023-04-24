@@ -43,13 +43,7 @@ class Recipe(models.Model):
     def average_recipe_score(self):
         return self.user_recipe_score.aggregate()
 
-    # Reference this in Readme as had to look this up.
-    # def save(self, *args, **kwargs):
-    #         if self.is_featured:
-    #             # check if there are already 2 featured recipes
-    #             if Recipe.objects.filter(is_featured=True).count() == 2:
-    #                 raise ValidationError("Only 2 recipes can be featured at a time.")
-    #         super(Recipe, self).save(*args, **kwargs)
+
 
 
 class Comment(models.Model):
