@@ -177,3 +177,8 @@ class SearchResultsView(ListView):
         else:
             return self.model.objects.none()
 
+class TrendingRecipesListView(ListView):
+    model = Recipe
+    template_name = 'recipe_list.html'
+    context_object_name ='recipes'
+    paginate_by = 8
