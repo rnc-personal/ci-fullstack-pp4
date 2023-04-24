@@ -183,6 +183,7 @@ class TrendingRecipesListView(ListView):
     template_name = 'recipe_list.html'
     context_object_name = 'recipes'
     paginate_by = 8
+    active_categories = get_categories_with_recipes()
 
     def get_queryset(self):
         min_score = self.request.GET.get('min_score', 0)
@@ -194,7 +195,7 @@ class TrendingRecipesListView(ListView):
         )
 
         return queryset
-        
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
@@ -205,5 +206,7 @@ class TrendingRecipesListView(ListView):
             'gte_9': Recipe.objects.annotate(avg_rating=Avg('comments__rating', filter=models.Q(comments__approved=True))).filter(avg_rating__gte=9).count(),
             'eq_10': Recipe.objects.annotate(avg_rating=Avg('comments__rating', filter=models.Q(comments__approved=True))).filter(avg_rating=10).count(),
         }
+
+        context['active_categories'] = get_categories_with_recipes()
 
         return context
