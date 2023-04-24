@@ -76,7 +76,7 @@ class RecipeByTimeView(View):
 
 
 class RecipeByDifficultyView(View):
-    template_name = 'recipes_by_difficulty.html'
+    template_name = 'recipe_list.html'
 
     def get(self, request, *args, **kwargs):
         difficulty = request.GET.get('difficulty', None)
