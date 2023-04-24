@@ -27,7 +27,6 @@ class Recipe(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     category = models.CharField(max_length=200, choices=CATEGORY, default='bakery')
     user_recipe_score = models.ManyToManyField(User, related_name='user_recipe_score', blank=True, editable=False)
-    content = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
     is_featured = models.BooleanField(default=False)
