@@ -162,6 +162,10 @@ li>a:hover {
     box-shadow: none;
 }
 
+.btn-lg.fw-bold.accent-dark.text-decoration-none {
+    transition: color 0.2s ease-in-out;
+}
+
 /* Media Queries */
 
 @media screen and (max-width:1200px) {
