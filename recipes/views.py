@@ -3,6 +3,7 @@ from django.db.models import Count, Avg, Q
 from django.views import generic, View
 from django.views.generic import ListView
 from django.http import Http404
+from django.db import models
 from .models import Recipe
 from .forms import CommentForm
 
@@ -180,5 +181,17 @@ class SearchResultsView(ListView):
 class TrendingRecipesListView(ListView):
     model = Recipe
     template_name = 'recipe_list.html'
-    context_object_name ='recipes'
+    context_object_name = 'recipes'
     paginate_by = 8
+
+    def get_queryset(self):
+        min_score = self.request.GET.get('min_score', 0)
+
+        queryset = super().get_queryset().annotate(
+            average_score=Avg('comments__rating', filter=models.Q(comments__approved=True))
+        ).filter(
+            average_score__gte=min_score
+        )
+
+        return queryset
+
