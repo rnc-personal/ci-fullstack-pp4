@@ -179,7 +179,7 @@ li>a:hover {
 
 @media screen and (max-width: 991px) {
     .logo-wrapper {
-        width: 50px;
+        width: 90px;
         top: 3px;
         left: 50%;
         transform: translateX(-50%);
