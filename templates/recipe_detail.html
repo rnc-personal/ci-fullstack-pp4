@@ -83,11 +83,11 @@
                 </section>
                 <!-- Post content-->
                 <section class="mb-5">
-                    <p class="fs-5 mb-4">{{ recipe.ingredients|striptags }}</p>
+                    <p class="fs-5 mb-4">{{ recipe.ingredients|safe }}</p>
                 </section>
                 <hr>
                 <section class="mb-5">
-                    <p class="fs-5 mb-4">{{ recipe.instructions|striptags }}</p>
+                    <p class="fs-5 mb-4">{{ recipe.instructions|safe }}</p>
                 </section>
             </article>
             <!-- Comments section-->
