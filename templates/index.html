@@ -6,18 +6,18 @@
 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     {% if homepage_sliders %}
-      {% for slider in homepage_sliders %}
-      <!-- <a href="/recipes/{{ slider.recipe.slug }}"> -->
-        <div class="carousel-item{% if forloop.first %} active{% endif %}">
-          <img src="{{ slider.banner_image.url }} " class="d-block w-100" alt="{{ slider.title }}">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>{{ slider.recipe.title }}</h5>
-            <p>{{ slider.banner_content }}</p>
-            <a class="btn accent-light">GET COOKING!</a>
-          </div>
-        </div>
-      <!-- </a> -->
-        {% endfor %}
+    {% for slider in homepage_sliders %}
+    <!-- <a href="/recipes/{{ slider.recipe.slug }}"> -->
+    <div class="carousel-item{% if forloop.first %} active{% endif %}">
+      <img src="{{ slider.banner_image.url }} " class="d-block w-100" alt="{{ slider.title }}">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ slider.recipe.title }}</h5>
+        <p>{{ slider.banner_content }}</p>
+        <a class="btn accent-light">GET COOKING!</a>
+      </div>
+    </div>
+    <!-- </a> -->
+    {% endfor %}
     {% endif %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
@@ -88,53 +88,44 @@
   </div>
 </section>
 
-<section class="featured-recipes">
+{% if homepage_content %}
+<section class="promo">
   <div class="container">
     <div class="row justify-content-center">
+      {% for cta_content in homepage_content %}
       <!-- 2 Recipes Marked as featured, limit of 2 -->
       <div class="col-5 md-6">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-            to
-            featured content or information.</p>
-          <hr class="my-4">
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <a class="btn accent-dark btn-md" href="#" role="button">Learn more</a>
+          <h1 class="display-4">{{ cta_content.cta_header1 }}</h1>
+          <p class="lead">{{ cta_content.cta_content1 }}</p>
         </div>
       </div>
 
       <div class="col-5 md-6">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-            to
-            featured content or information.</p>
-          <hr class="my-4">
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <a class="btn accent-dark btn-md" href="#" role="button">Learn more</a>
+          <h1 class="display-4">{{ cta_content.cta_header2 }}</h1>
+          <p class="lead">{{ cta_content.cta_content2 }}</p>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="promo">
   <!-- Heading with a 2 column layout with text on the left and image on the right -->
   <div class="container">
     <div class="row justify-content-center">
-      <h3 class="text-center">FEATURED RECIPES</h3>
+      <h3 class="text-center">ABOUT BAKING MAMA</h3>
       <div class="col-5 col-md-6">
-        <h3>Hello, world!</h3>
-        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
-          content or information.</p>
+        <p>Baking Mama is a small group of mums that enjoy trying out new recipes at home for their family and wanted to
+          share their experience with the world.</p>
       </div>
       <div class="col-4 col-md-4">
-        <img class="img-fluid" src="img/bootstrap-solid.png" alt="Bootstrap">
+        <img class="img-fluid" src="{% static 'img/logo-web.png' %}" alt="Baking Mama">
       </div>
     </div>
-
-
 </section>
 
 {% endblock %}
