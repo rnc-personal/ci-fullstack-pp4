@@ -60,3 +60,21 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment: {self.body} by {self.name}"
+
+
+class HomepageContent(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.SET_NULL, related_name='hero_sliders', null=True)
+    banner_image = CloudinaryField('banner_image', default='placeholder')
+    banner_content = models.CharField(max_length=200, unique=True)
+    cta_header1 = models.CharField(max_length=200, unique=True)
+    cta_content1 = models.CharField(max_length=200, unique=True)
+    cta_header2 = models.CharField(max_length=200, unique=True)
+    cta_content2 = models.CharField(max_length=200, unique=True)
+    about_content = models.CharField(max_length=200, unique=True)
+    featured_image = CloudinaryField('featured_image', default='placeholder')
+
+    class Meta:
+        ordering = ['recipe']
+
+    def __str__(self):
+        return f'{self.recipe.title} - Slider' if self.recipe else 'No Recipe - Slider'
