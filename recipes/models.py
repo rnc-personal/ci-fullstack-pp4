@@ -62,10 +62,19 @@ class Comment(models.Model):
         return f"Comment: {self.body} by {self.name}"
 
 
-class HomepageContent(models.Model):
+class HeroSlider(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.SET_NULL, related_name='hero_sliders', null=True)
     banner_image = CloudinaryField('banner_image', default='placeholder')
     banner_content = models.CharField(max_length=200, unique=True)
+
+    class Meta:
+        ordering = ['recipe']
+
+    def __str__(self):
+        return f'{self.recipe.title} - Slider' if self.recipe else 'No Recipe - Slider'
+
+
+class HomepageCTA(models.Model):
     cta_header1 = models.CharField(max_length=200, unique=True)
     cta_content1 = models.CharField(max_length=200, unique=True)
     cta_header2 = models.CharField(max_length=200, unique=True)
@@ -74,7 +83,9 @@ class HomepageContent(models.Model):
     featured_image = CloudinaryField('featured_image', default='placeholder')
 
     class Meta:
-        ordering = ['recipe']
+        verbose_name = "Homepage CTA"
+        verbose_name_plural = "Homepage CTAs"
 
     def __str__(self):
-        return f'{self.recipe.title} - Slider' if self.recipe else 'No Recipe - Slider'
+        return f'{self.cta_header1} - {self.cta_header2}'
+

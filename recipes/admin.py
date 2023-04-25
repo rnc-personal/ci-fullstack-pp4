@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Comment, HomepageContent
+from .models import Recipe, Comment, HeroSlider, HomepageCTA
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -22,9 +22,15 @@ class CommentAdmin(admin.ModelAdmin):
     def approve_comment(self, request, queryset):
         queryset.update(approved=True)
 
-@admin.register(HomepageContent)
-class HomepageContentAdmin(admin.ModelAdmin):
-    list_display = ('recipe', 'banner_content', 'cta_header1', 'cta_content1', 'cta_header2', 'cta_content2', 'about_content')
-    search_fields = ('recipe__title', 'banner_content', 'cta_header1', 'cta_content1', 'cta_header2', 'cta_content2', 'about_content')
+@admin.register(HeroSlider)
+class HeroSliderAdmin(admin.ModelAdmin):
+    list_display = ('recipe', 'banner_content')
+    search_fields = ('recipe__title', 'banner_content')
     list_filter = ('recipe',)
+
+@admin.register(HomepageCTA)
+class HomepageCTAAdmin(admin.ModelAdmin):
+    list_display = ('cta_header1', 'cta_content1', 'cta_header2', 'cta_content2', 'about_content')
+    search_fields = ('cta_header1', 'cta_content1', 'cta_header2', 'cta_content2', 'about_content')
+
 

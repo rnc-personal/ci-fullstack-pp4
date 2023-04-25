@@ -4,7 +4,7 @@ from django.views import generic, View
 from django.views.generic import ListView
 from django.http import Http404
 from django.db import models
-from .models import Recipe, HomepageContent
+from .models import Recipe, HeroSlider, HomepageCTA
 from .forms import CommentForm
 
 
@@ -158,11 +158,13 @@ class HomeRecipesView(generic.ListView):
     def get(self, request):
         newest_recipes = Recipe.objects.filter(status=1).order_by('-created_date')[:4]
         trending_recipes = Recipe.objects.all().order_by('-created_date')[:8]
-        homepage_content = HomepageContent.objects.all()
+        homepage_sliders = HeroSlider.objects.all()
+        homepage_content = HomepageCTA.objects.all()
 
         context = {
             'newest_recipes': newest_recipes,
             'trending_recipes': trending_recipes,
+            'homepage_sliders': homepage_sliders,
             'homepage_content': homepage_content,
         }
 
