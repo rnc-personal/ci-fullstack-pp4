@@ -5,27 +5,20 @@
 <!-- BS5 Carousel -->
 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static 'img/banner-1-crop.jpg' %}" class="d-block w-100" alt="Slide 1">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Slide 1</h5>
-        <p>Slide 1 description goes here.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'img/banner-2-crop.jpg' %}" class="d-block w-100" alt="Slide 2">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Slide 2</h5>
-        <p>Slide 2 description goes here.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'img/banner-3-crop.jpg' %}" class="d-block w-100" alt="Slide 3">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Slide 3</h5>
-        <p>Slide 3 description goes here.</p>
-      </div>
-    </div>
+    {% if homepage_sliders %}
+      {% for slider in homepage_sliders %}
+      <!-- <a href="/recipes/{{ slider.recipe.slug }}"> -->
+        <div class="carousel-item{% if forloop.first %} active{% endif %}">
+          <img src="{{ slider.banner_image.url }} " class="d-block w-100" alt="{{ slider.title }}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{ slider.recipe.title }}</h5>
+            <p>{{ slider.banner_content }}</p>
+            <a class="btn accent-light">GET COOKING!</a>
+          </div>
+        </div>
+      <!-- </a> -->
+        {% endfor %}
+    {% endif %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
