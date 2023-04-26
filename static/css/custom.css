@@ -71,11 +71,7 @@ li>a:hover {
 
 }
 
-.mega-content>.container-fluid {
-    min-height: 300px;
-    height: 370px;
-    width: 750px;    
-}
+
 
 /* Custom Classes */
 
@@ -183,6 +179,14 @@ li>a:hover {
     }
 }
 
+@media screen and (min-width: 992px) {
+    .mega-content>.container-fluid {
+        min-height: 300px;
+        height: 370px;
+        width: 750px;    
+    }
+}
+
 @media screen and (max-width: 991px) {
     .logo-wrapper {
         width: 90px;
@@ -197,5 +201,10 @@ li>a:hover {
 
     .carousel-caption>p {
         font-size: 1rem;
+    }
+
+    .submenu-wrapper {
+        flex-direction: column;
+        text-align: center;
     }
 }
