@@ -62,7 +62,7 @@ li,
 
 a:hover,
 .nav-link:hover {
-    color: #fafafa;
+    color: #fafafa !important;
     font-weight: 500;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
