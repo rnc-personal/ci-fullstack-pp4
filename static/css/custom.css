@@ -47,6 +47,7 @@ ul,
 li,
 .nav-link {
     color: var(--site-text);
+    font-family: 'Nunito', sans-serif;
 }
 
 .carousel-caption>h5 {
