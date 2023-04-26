@@ -71,6 +71,12 @@ li>a:hover {
 
 }
 
+.mega-content>.container-fluid {
+    min-height: 300px;
+    height: 370px;
+    width: 750px;    
+}
+
 /* Custom Classes */
 
 .logo-wrapper {
