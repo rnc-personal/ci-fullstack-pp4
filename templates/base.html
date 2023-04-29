@@ -42,6 +42,13 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/recipes">All Recipes</a>
                     </li>
+                    <li class="nav-item">
+                        {% if not user.is_authenticated %}
+                        <a class="nav-link" aria-current="page" href="/accounts/login/">Login/Signup</a>
+                        {% elif user.is_authenticated %}
+                        <a class="nav-link" aria-current="page" href="/accounts/logout/">Logout</a>
+                        {% endif %}
+                    </li>
                     <li class="nav-item dropdown dropdown-mega position-static">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside">Megamenu</a>

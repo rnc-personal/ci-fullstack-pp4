@@ -7,9 +7,9 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container mt-5 accounts-wrapper">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+    <div class="col-md-8 mt-5 offset-md-2">
       <h3>{% trans "Sign In" %}</h3>
 
       <p>{% blocktrans %}If you have not created an account yet, then please
@@ -22,17 +22,12 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
 
-        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+        <button class="primaryAction btn rounded accent-dark" type="submit">{% trans "Sign In" %}</button>
       </form>
 
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <!-- Login -->
-    </div>
-  </div>
 </div>
+<div class="accounts-footer-decor w-100"></div>
 
 {% endblock %}
