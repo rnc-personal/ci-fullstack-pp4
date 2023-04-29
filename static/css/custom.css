@@ -246,8 +246,8 @@ input:focus-visible {
     color: var(--site-bg);
 }
 
-.btn-lg.fw-bold.accent-dark a:hover {
-    color: var(--highlight-light);
+a:hover {
+    color: var(--site-bg);
 }
 /* Media Queries */
 
