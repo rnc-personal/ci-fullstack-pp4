@@ -68,7 +68,7 @@ a:hover,
 }
 
 li>a:hover {
-    color: var(--highlight-dark) ;
+    color: var(--highlight-dark);
 
 }
 
@@ -81,7 +81,7 @@ li>a:hover {
 
 .page-link:hover {
     background-color: var(--highlight-dark);
-    color: var(--site-bg) ;
+    color: var(--site-bg);
 }
 
 
@@ -105,7 +105,7 @@ li>a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid var(--highlight-dark);    
+    border: 2px solid var(--highlight-dark);
 }
 
 .home-cards-grid {
@@ -116,6 +116,7 @@ li>a:hover {
     font-weight: 600;
     margin: 0 0 5px 0 !important;
 }
+
 .lowest-score {
     color: #8618c6
 }
@@ -129,7 +130,7 @@ li>a:hover {
 }
 
 .high-score {
-    color: #268102 ;
+    color: #268102;
 }
 
 .top-score {
@@ -177,7 +178,9 @@ li>a:hover {
     border-radius: 5px;
 }
 
-.form-control:focus-visible, .form-control:focus, input:focus-visible {
+.form-control:focus-visible,
+.form-control:focus,
+input:focus-visible {
     outline: none !important;
     outline-color: transparent;
     outline-width: 0px;
@@ -187,6 +190,36 @@ li>a:hover {
 .btn-lg.fw-bold.accent-dark.text-decoration-none {
     transition: color 0.2s ease-in-out;
 }
+
+.character-link {
+    position: relative;
+}
+
+.character-link-image {
+    width: 40px;
+    transition: transform 0.3s ease-in-out;  
+    margin-left: auto; 
+}
+
+.character-link-image:hover {
+    transform: translate(0, -10%);   
+}
+
+.character-name {
+    display: inline-block;
+    color: var(--site-text);
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.character-name:hover {
+    background-color: var(--highlight-light);
+}
+
 
 /* Media Queries */
 
@@ -203,7 +236,7 @@ li>a:hover {
     .mega-content>.container-fluid {
         min-height: 300px;
         height: 370px;
-        width: 750px;    
+        width: 750px;
     }
 }
 
