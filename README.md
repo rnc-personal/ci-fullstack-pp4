@@ -143,7 +143,7 @@ Each page has a responsive navbar at the top, which also serve as the sites main
 Some features I would like to implement are:
 
 - Apply to Be an Author
-    - Current Users can fill out an additional form with some personal info and they can be give permission to publish or submit articles for an admin to approve and publish
+    - Current Users can fill out an additional form with some personal info and they can be given permission to publish or submit articles for an admin to approve and publish
 - Nested Comments
     - Use a plugin like Disqus or develop myself, a way for users to reply to each others comments on a recipe to get a better flow of conversation going
 
