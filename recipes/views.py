@@ -8,12 +8,6 @@ from .models import Recipe, HeroSlider, HomepageCTA
 from .forms import CommentForm
 
 
-# This is for checking which categories are empty / have a recipe attached
-# Reference in the readme
-def get_categories_with_recipes():
-    categories_with_recipes = Recipe.objects.values('category').annotate(recipe_count=Count('category')).filter(recipe_count__gt=0)
-    return [item['category'] for item in categories_with_recipes]
-
 class RecipeListView(generic.ListView):
     template_name = 'recipe_list.html'
     paginate_by = 8
@@ -29,14 +23,12 @@ class RecipeByCategoryView(View):
 
     def get(self, request, *args, **kwargs):
         category = request.GET.get('category', None)
-        active_categories = get_categories_with_recipes()
 
         if category in dict(Recipe.category.field.choices):
             recipes = Recipe.objects.filter(category=category)
             context = {
                 'category': category,
                 'recipes': recipes,
-                'active_categories': active_categories,
             }
         else:
             raise Http404("Invalid category")
@@ -49,7 +41,7 @@ class RecipeByTimeView(View):
     def get(self, request, *args, **kwargs):
         time_lt = request.GET.get('cooking_time_minutes_lt', None)
         time_gt = request.GET.get('cooking_time_minutes_gt', None)
-        active_categories = get_categories_with_recipes()
+
 
         recipes = Recipe.objects.all()
 
@@ -61,7 +53,6 @@ class RecipeByTimeView(View):
 
         context = {
             'recipes': recipes,
-            'active_categories': active_categories,
         }
 
         return render(request, self.template_name, context)
@@ -74,7 +65,6 @@ class RecipeByDifficultyView(View):
 
     def get(self, request, *args, **kwargs):
         difficulty = request.GET.get('difficulty', None)
-        active_categories = get_categories_with_recipes()
         easy_recipes = Recipe.objects.filter(difficulty=1).order_by('-created_date')[:4]
         novice_recipes = Recipe.objects.filter(difficulty=2).order_by('-created_date')[:4]
         intermediate_recipes = Recipe.objects.filter(difficulty=3).order_by('-created_date')[:4]
@@ -85,7 +75,6 @@ class RecipeByDifficultyView(View):
         context = {
                 'difficulty': difficulty,
                 'recipes': recipes,
-                'active_categories': active_categories,
                 'easy_recipes': easy_recipes,
                 'novice_recipes': novice_recipes,
                 'intermediate_recipes': intermediate_recipes,
@@ -102,7 +91,6 @@ class RecipeDetailView(View):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('-created_date')
-        active_categories = get_categories_with_recipes()
         avg_rating = recipe.comments.filter(approved=True).aggregate(Avg('rating'))['rating__avg'] or 0
 
         return render(
@@ -110,7 +98,6 @@ class RecipeDetailView(View):
             'recipe_detail.html',
             {
                 'recipe': recipe,
-                'active_categories': active_categories,
                 'comments': comments,
                 'commented': False,
                 'comment_form': CommentForm(),
@@ -122,7 +109,6 @@ class RecipeDetailView(View):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('-created_date')
-        active_categories = get_categories_with_recipes()
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -139,7 +125,6 @@ class RecipeDetailView(View):
             'recipe_detail.html',
             {
                 'recipe': recipe,
-                'active_categories': active_categories,
                 'comments': comments,
                 'commented': True,
                 'comment_form': comment_form,
@@ -181,7 +166,7 @@ class TrendingRecipesListView(ListView):
     template_name = 'recipe_list.html'
     context_object_name = 'recipes'
     paginate_by = 8
-    active_categories = get_categories_with_recipes()
+
 
     def get_queryset(self):
         min_score = self.request.GET.get('min_score', 0)
@@ -204,8 +189,6 @@ class TrendingRecipesListView(ListView):
             'gte_9': Recipe.objects.annotate(avg_rating=Avg('comments__rating', filter=models.Q(comments__approved=True))).filter(avg_rating__gte=9).count(),
             'eq_10': Recipe.objects.annotate(avg_rating=Avg('comments__rating', filter=models.Q(comments__approved=True))).filter(avg_rating=10).count(),
         }
-
-        context['active_categories'] = get_categories_with_recipes()
 
         return context
 
