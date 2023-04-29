@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Count, Avg, Q
 from django.views import generic, View
 from django.views.generic import ListView
-from django.http import Http404
+from django.http import Http404, HttpResponseNotFound
 from django.db import models
 from .models import Recipe, HeroSlider, HomepageCTA
 from .forms import CommentForm
@@ -214,3 +214,7 @@ class TrendingRecipesListView(ListView):
         context['active_categories'] = get_categories_with_recipes()
 
         return context
+
+class Custom404View(View):
+    def get(self, request, exception=None):
+        return render(request, '404.html', status=404)
