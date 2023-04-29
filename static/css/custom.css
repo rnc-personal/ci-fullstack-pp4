@@ -44,10 +44,18 @@ span,
 strong,
 a,
 ul,
-li,
-.nav-link {
+li
+ {
     color: var(--site-text);
     font-family: 'Nunito', sans-serif;
+}
+
+.nav-link {
+    color: var(--site-text) !important;
+}
+
+.carousel-caption {
+    background-color: rgba(0,0,0,0.3);
 }
 
 .carousel-caption>h5 {
