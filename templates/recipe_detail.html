@@ -91,11 +91,14 @@
                 </section>
             </article>
             <!-- Comments section-->
+            <!-- Comment form-->
             <section class="mb-5">
-                <h3 class="fw-bolder mb-3">Leave A Comment</h3>
                 <div class="card bg-light">
                     <div class="card-body">
-                        <!-- Comment form-->
+                        {% if not user.is_authenticated %}
+                        <h3>Comments</h3>
+                        <p><a href="/accounts/login/">Login</a> to leave a comment or <a href="/accounts/signup/">Signup</a> here</p>
+                        {% endif %}
                         {% if commented %}
                         <div class="alert alert-success" role="alert">
                             Your comment is awaiting approval
