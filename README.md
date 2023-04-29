@@ -260,7 +260,7 @@ Results are here: (https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F
 The only fix available for this is to replace the ul/li with divs. I then had to restyle them to retain their hover styling.
 ### Code Used
 - Boostrap template: "Start bootstrap" (https://startbootstrap.com/previews/blog-post)
-- No direct code has been used from an external source, though a combination of Stack overflow, dajngo documentation and blog posts have been looked up for reference purposes only
+- No direct code has been used from an external source, though a combination of Stack overflow, Django documentation and blog posts have been looked up for reference purposes only
 
 ### Content
 All content was written by ChatGPT4 aside from Home Page CTA(Calls to Action)
