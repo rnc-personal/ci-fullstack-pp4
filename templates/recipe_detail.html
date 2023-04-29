@@ -97,7 +97,8 @@
                     <div class="card-body">
                         {% if not user.is_authenticated %}
                         <h3>Comments</h3>
-                        <p><a href="/accounts/login/" class="inline-link">Login</a> to leave a comment or <a href="/accounts/signup/" class="inline-link">Signup</a> here</p>
+                        <p><a href="/accounts/login/" class="inline-link">Login</a> to leave a comment or <a
+                                href="/accounts/signup/" class="inline-link">Signup</a> here</p>
                         {% endif %}
                         {% if commented %}
                         <div class="alert alert-success" role="alert">
@@ -109,7 +110,7 @@
                         <h3>Leave a comment:</h3>
                         <p>Posting as: {{ user.username }}</p>
                         <form method="post" class="d-flex flex-column" style="margin-top: 1.3em;">
-                            {{ comment_form | crispy }}
+                            {{ comment_form|crispy }}
                             {% csrf_token %}
                             <button type="submit" class="btn accent-dark btn-lg mt-2">Submit</button>
                         </form>
@@ -142,30 +143,31 @@
                 <div class="card-body">
                     {% if recipe.difficulty == 1 %}
                     <span class="fs-5 top-score">Easy Recipe</span>
-                        <p>Suitable for children or something that needs very little prep.</p>
-                        <p>Try experimenting with it and come up with your own variations!</p>
+                    <p>Suitable for children or something that needs very little prep.</p>
+                    <p>Try experimenting with it and come up with your own variations!</p>
                     <img src="{% static 'img/easy-apple.png' %}" class="mama-character">
                     {% elif recipe.difficulty == 2 %}
                     <span class="fs-5 high-score">Intermediate Recipe.</span>
-                        <p>Make sure you prepare our ingredients first!</p>
-                        <p>Just follow the steps and Cooking Mama is sure you will do great.</p>
+                    <p>Make sure you prepare our ingredients first!</p>
+                    <p>Just follow the steps and Cooking Mama is sure you will do great.</p>
                     <img src="{% static 'img/medium-banana.png' %}" class="mama-character">
                     {% elif recipe.difficulty == 3 %}
                     <span class="fs-5 med-score">Medium Recipe</span>
-                        <p>Will need some additional prep or time.</p>
-                        <p>Walk through the steps forst in your head and try to have things prepped in advance. Good Luck!</p>
+                    <p>Will need some additional prep or time.</p>
+                    <p>Walk through the steps forst in your head and try to have things prepped in advance. Good Luck!
+                    </p>
                     <img src="{% static 'img/intermediate-beefpie.png' %}" class="mama-character">
                     {% elif recipe.difficulty == 4 %}
                     <span class="fs-5 low-score">Expert Recipe</span>
-                        <p>Are you ready?</p>
-                        <p>If you are trying this out, you must have some experience. As always, take time to do your prep
-                            and follow each step carefully!</p>
+                    <p>Are you ready?</p>
+                    <p>If you are trying this out, you must have some experience. As always, take time to do your prep
+                        and follow each step carefully!</p>
                     <img src="{% static 'img/tricky-carrot.png' %}" class="mama-character">
                     {% elif recipe.difficulty == 5 %}
                     <span class="fs-5 lowest-score">Pro Recipe</span>
-                        <p>Wow, this one looks hard!</p>
-                        <p>Just kidding... This is one of the toughest recipes though. Pay attention to the instructions and
-                            the details and by the end you will be a Cooking Mama too!</p>
+                    <p>Wow, this one looks hard!</p>
+                    <p>Just kidding... This is one of the toughest recipes though. Pay attention to the instructions and
+                        the details and by the end you will be a Cooking Mama too!</p>
                     <img src="{% static 'img/expert-tomato.png' %}" class="mama-character">
                     {% endif %}
                 </div>
@@ -174,6 +176,15 @@
     </div>
 </div>
 
-
+<script>
+    const ratingInput = document.getElementById("id_rating");
+    ratingInput.addEventListener("input", function () {
+        if (ratingInput.value > 10) {
+            ratingInput.value = 10;
+        } else if (ratingInput.value < 0) {
+            ratingInput.value = 0;
+        }
+    });
+</script>
 
 {% endblock %}
