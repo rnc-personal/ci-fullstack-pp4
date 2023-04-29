@@ -171,7 +171,14 @@ Most notably summernote for enhanced content editing, Crispy Forms for handling 
 
 ### Deployment
 
-Include instructions here on how to deploy your project. For your first project you will most likely be using GitHub Pages.
+By following the steps below , part of the deployment process will be taken care of for you.
+For a full deployment:
+
+- Change the DEBUG setting in you main project folders settings.py file to "False" (no quotes)
+- Remove the DISABLE_COLLECTSTATIC variable inside of Heroku
+- Connect to Github in the deploy tab of the project
+- Go the the deploy tab of the project, at the bottom the 'Manual Deploy' option will deploy the project from the branch that is currenly selected
+- Optionally you can enable automatic deploys each time a new commit is made. This isnt recommend while development is ongoing necesssarily as it is quicker to view changes locally and many times it will require changing the debug setting each time you want to view the 'live' site hosted on Heroku.
 
 ### Local Development
 
