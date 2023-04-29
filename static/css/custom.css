@@ -260,4 +260,9 @@ input:focus-visible {
         flex-direction: column;
         text-align: center;
     }
+
+    .home-cta-2-col {
+        flex-direction: column;
+        align-items: center;
+    }
 }

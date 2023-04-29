@@ -84,20 +84,19 @@
 {% if homepage_content %}
 <section class="promo">
   <div class="container">
-    <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center mt-4 mb-4 home-cta-2-col">
       {% for cta_content in homepage_content %}
-      <!-- 2 Recipes Marked as featured, limit of 2 -->
-      <div class="col-5 md-6">
+      <div class="col-6 md-6 sm-6" >
         <div class="jumbotron">
           <h1 class="display-4">{{ cta_content.cta_header1 }}</h1>
           <p class="lead">{{ cta_content.cta_content1 }}</p>
         </div>
       </div>
 
-      <div class="col-5 md-6">
+      <div class="col-6 md-6 sm-6">
         <div class="jumbotron">
-          <h1 class="display-4">{{ cta_content.cta_header2 }}</h1>
-          <p class="lead">{{ cta_content.cta_content2 }}</p>
+          <h1 class="display-4 text-right">{{ cta_content.cta_header2 }}</h1>
+          <p class="lead text-right">{{ cta_content.cta_content2 }}</p>
         </div>
       </div>
       {% endfor %}
