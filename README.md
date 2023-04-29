@@ -247,7 +247,7 @@ The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"
 | Lighthouse Testing                              | Take a lighthouse score for desktop and mobile                                                        | PASS   |
 | Responsive Testing                              | Test on a mobile device for any layout issues                                                         | PASS   |
 | 404 page                                        | Check that the 404 page only displays for incorrect links and not links that should be working        | PASS   |
-| Login and Signup                                | Check new users can signupand then login                                                              | PASS   |
+| Login and Signup                                | Check new users can signup and then login                                                              | PASS   |
 
 
 
