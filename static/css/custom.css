@@ -99,6 +99,10 @@ li>a:hover {
     font-weight: 500;
 }
 
+a:hover {
+    color: var(--site-bg);
+}
+
 /* Custom Classes */
 
 .logo-wrapper {
