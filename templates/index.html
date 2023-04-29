@@ -30,17 +30,10 @@
   </button>
 </div>
 
-<div class="container">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-  Ipsa eos corporis deleniti itaque eum quo quam id molestias, culpa quae animi labore nobis!
-  Fugiat, in iusto consequatur facilis quibusdam libero.
-
-</div>
-
-<section class="container-fluid accent-light">
+<section class="container-fluid accent-light home-cards-grid">
   <!-- 1st Row -->
   <div class="container mt-5">
-    <h2 class="text-center">NEWEST RECIPES</h2>
+    <h2 class="text-center pt-5">NEWEST RECIPES</h2>
     <!-- Placeholder Cards -->
     <div class="row">
       {% for recipe in newest_recipes %}
@@ -91,7 +84,7 @@
 {% if homepage_content %}
 <section class="promo">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-4">
       {% for cta_content in homepage_content %}
       <!-- 2 Recipes Marked as featured, limit of 2 -->
       <div class="col-5 md-6">

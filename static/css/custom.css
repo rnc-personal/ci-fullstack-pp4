@@ -96,6 +96,9 @@ li>a:hover {
     border: 2px solid var(--highlight-dark);    
 }
 
+.home-cards-grid {
+    margin-top: -48px;
+}
 
 .recipe-scores {
     font-weight: 600;
