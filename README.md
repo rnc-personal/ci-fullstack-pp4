@@ -74,7 +74,7 @@ The basic design can be viewed in Figma here: [https://www.figma.com/file/wMtqtS
 
 ### Colour Scheme
 
-The colour scheme for the site came from the logo. The client wanted a very cute, semi ”Anime” look to it, which was mostly achieve using images and characters throughout the site. Initially I looked at creating a logo that would fit this best and the sites colour scheme was derived from this, with some minor adjustment for contrast and readability.
+The colour scheme for the site came from the logo. The client wanted a very cute, semi ”Anime” look to it, which was mostly achieve using images and characters throughout the site. Initially, I looked at creating a logo that would fit this best and the sites colour scheme was derived from this, with some minor adjustment for contrast and readability.
 
 The main palette is made up of 4 key colours:
 
@@ -100,7 +100,7 @@ Nunito:
 
 ### Imagery
 
-The imagery was a key part of making the site exciting and attractive to visitors. The sites design overall needed to be simple and easy to navigate with the imagery being the key feature about a recipe visually. The client wanted to go for very professional looking, blogger style photography shots with lots of depth of field that really focused on the food itself. 
+The imagery was a key part of making the site exciting and attractive to visitors. The sites design overall needed to be simple and easy to navigate with the imagery being the key feature about a recipe visually. The client wanted to go for very professional looking, "blogger" style photography shots with lots of depth of field that really focused on the food itself. 
 
 All images for the site were generated using Midjourney.
 
@@ -114,7 +114,7 @@ Before the Figma mockup I created a brief wirefame (below), This helped when loo
 
 ### Site General Features
 
-Each page has as responsive navbar at the top, which also serve as the sites main search as well as footer that provides some quick links to navigate to the various categories / filters for the recipes.
+Each page has a responsive navbar at the top, which also serve as the sites main search as well as footer that provides some quick links to navigate to the various categories/filters for the recipes.
 
 - Home
     - Responsive Hero Slider: Links to selected recipes and shows of some of the photography. Can be edited via the admin panel.
@@ -145,15 +145,15 @@ Each page has as responsive navbar at the top, which also serve as the sites mai
 Some features I would like to implement are:
 
 - Apply to Be an Author
-    - Current Users can fill out an additional form with some personal info and they an be give permission to publish or submit articles for an admin to approve and publish
+    - Current Users can fill out an additional form with some personal info and they can be give permission to publish or submit articles for an admin to approve and publish
 - Nested Comments
     - Use a plugin like Disqus or develop myself, a way for users to reply to each others comments on a recipe to get a better flow of conversation going
 
 ### Accessibility
 
-I planned to use a bootstrap template / components for much of the layout so care was taken to find good assets that had accessibility options implemented well as this ensured nothing would be missed.
+I planned to use a bootstrap template/components for much of the layout so care was taken to find good assets that had accessibility options implemented well as this ensured nothing would be missed.
 
-While initially the colour scheme for the site appeared to be okay for contrast and legibility , the testing towards the end of development revealed that some of the buttons with hover state changes were not really ideal. These were all changed out to be much higher contrast without impacting the look and feel of the site too much.
+While initially, the colour scheme for the site appeared to be okay for contrast and legibility, the testing towards the end of development revealed that some of the buttons with hover state changes were not really ideal. These were all changed out to be much higher contrast without impacting the look and feel of the site too much.
 
 ## Technologies Used
 
@@ -163,27 +163,27 @@ The site was put developed using HTML/CSS/JS/Python
 
 ### Frameworks, Libraries & Programs Used
 
-The site was built using the Django framework for Python, which is the most popular web application framework for the language. A few additional libraries were added to improve on it’s built-in functionality.
+The site was built using the Django framework for Python, which is the most popular web application framework for the language. A few additional libraries were added to improve on its built-in functionality.
 
-Most notably summernote for enhanced content editing, Crispy Forms for handling forms(comments/ratings) and cloudinay for image hosting/CDN.
+Most notably Summernote for enhanced content editing, Crispy Forms for handling forms(comments/ratings) and Cloudinary for image hosting/CDN.
 
 ## Deployment & Local Development
 
 ### Deployment
 
-By following the steps below , part of the deployment process will be taken care of for you.
+By following the steps below, part of the deployment process will be taken care of for you.
 For a full deployment:
 
-- Change the DEBUG setting in you main project folders settings.py file to "False" (no quotes)
+- Change the DEBUG setting in your main project folders settings.py file to "False" (no quotes)
 - Remove the DISABLE_COLLECTSTATIC variable inside of Heroku
 - Connect to Github in the deploy tab of the project
-- Go the the deploy tab of the project, at the bottom the 'Manual Deploy' option will deploy the project from the branch that is currenly selected
-- Optionally you can enable automatic deploys each time a new commit is made. This isnt recommend while development is ongoing necesssarily as it is quicker to view changes locally and many times it will require changing the debug setting each time you want to view the 'live' site hosted on Heroku.
+- Go to the deploy tab of the project, at the bottom the 'Manual Deploy' option will deploy the project from the branch that is currently selected
+- Optionally you can enable automatic deploys each time a new commit is made. This isn't recommended while development is ongoing necessarily as it is quicker to view changes locally and many times it will require changing the debug setting each time you want to view the 'live' site hosted on Heroku.
 
 ### Local Development
 
 Once the project is forked or checked out, you will need to check in baking_mama/settings.py and set the DEBUG variable to 'False' (without quotes).
-You will also need to setup a Heroku, Cloudinary and ElephantSQL account:
+You will also need to setup a Heroku, Cloudinary, and ElephantSQL account:
 
 You will need to replace 2 keys within the settings.py and env.py files for your own deployment.
 
@@ -218,17 +218,17 @@ You will need to replace 2 keys within the settings.py and env.py files for your
     - Note: This is the ElephantSQL database url you copied in the previous step
 - Back in the editor, edit the env.py file and change the below line so it has your unique key in:
     - os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
-- Replace the secret key value with some value (doesnt matter what it is but it should not be easily guessed or shared).
+- Replace the secret key value with some value (doesn't matter what it is but it should not be easily guessed or shared).
 
 The settings.py file has been configured to use the SECRET_KEY and DATABASE_URL variables automatically and will update the project with the value you enter for your own project. 
 
 Back in Heroku/settings/reveal config vars, add the cloudinary key (CLOUDINARY_URL, cloudinary://************************)
 
-Finally add DISABLE_COLLECTSTATIC to Heroku Config Vars and set the value to 1. This is temporary for development and will need to be removed prior to launching the project yourself. Having it set to 1 means that django is serving the assets locally , when it is disabled, Cloudinary will serve them for you.
+Finally, add DISABLE_COLLECTSTATIC to Heroku Config Vars and set the value to 1. This is temporary for development and will need to be removed prior to launching the project yourself. Having it set to 1 means that Django is serving the assets locally, when it is disabled, Cloudinary will serve them for you.
 
-The directories and config has already been done for you, you just ned to replace the keys with your own.
+The directories and config has already been done for you, you just need to replace the keys with your own.
 
-The final step is updateding your settings.py file in the main project directory.
+The final step is updating your settings.py file in the main project directory.
 The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"] needs to be updated to match the name of your Heroku project you just created. It always ends with "...herokuapp.com", the localhost must remain there.
 
 
