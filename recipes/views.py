@@ -17,17 +17,11 @@ def get_categories_with_recipes():
 class RecipeListView(generic.ListView):
     template_name = 'recipe_list.html'
     paginate_by = 8
+    context_object_name = 'recipes'
 
-    def get(self, request):
-        recipes = Recipe.objects.filter(status=1).order_by('-created_date')
-        active_categories = get_categories_with_recipes()
-    
-        context = {
-            'recipes': recipes,
-            'active_categories': active_categories,
-        }
-
-        return render(request, self.template_name, context)
+    def get_queryset(self):
+        queryset = Recipe.objects.filter(status=1).order_by('-created_date')
+        return queryset
 
 
 class RecipeByCategoryView(View):

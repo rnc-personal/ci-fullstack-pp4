@@ -68,8 +68,20 @@ a:hover,
 }
 
 li>a:hover {
-    color: var(--highlight-dark);
+    color: var(--highlight-dark) ;
 
+}
+
+.page-link {
+    background-color: var(--highlight-light);
+    color: var(--site-text);
+    border: none;
+    margin: 0 2px;
+}
+
+.page-link:hover {
+    background-color: var(--highlight-dark);
+    color: var(--site-bg) ;
 }
 
 
