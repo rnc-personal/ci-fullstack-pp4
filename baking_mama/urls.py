@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from recipes import views
-
+from .views import page_not_found_view
 
 
 urlpatterns = [
@@ -29,4 +29,8 @@ urlpatterns = [
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('allauth.urls')),
+    
 ]
+
+
+handler404 = "baking_mama.views.page_not_found_view"

@@ -1,6 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
-    <h1>Page not found</h1>
-    <p>The requested page was not found on this server.</p>
+
+<section class="404-landing">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Whoops!</h1>
+                <p>Looks like you might be a little lost there!</p>
+                <img src="{% static 'img/404_clip.png' %}" class="img-fluid" alt="404">
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

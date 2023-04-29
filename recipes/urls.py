@@ -1,11 +1,13 @@
 from . import views
-from django.urls import path
-from .views import Custom404View
+from django.urls import path, re_path
+
+
 
 urlpatterns = [
     path('', views.HomeRecipesView.as_view(), name='home'),
     path('recipes/', views.RecipeListView.as_view(), name='recipe_listings'),
     path('recipes/<slug:slug>/', views.RecipeDetailView.as_view(), name='recipe_detail'),
-    path('404/', Custom404View.as_view(), name='404'),
+    
 ]
 
+handler404 = "baking_mama.views.page_not_found_view"
