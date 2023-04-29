@@ -8,7 +8,7 @@ Site URL: [ci-pp4-baking.herokuapp.com](http://ci-pp4-baking.herokuapp.com/)
 
 Preview:
 
-![https://github.com/rnc-personal/ci-fullstack-pp4/blob/main/readme/desktop-baking-mama.png](http://ci-pp4-baking.herokuapp.com/)
+![https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/main/readme/desktop-baking-mama.png](http://ci-pp4-baking.herokuapp.com/)
 
 ---
 
