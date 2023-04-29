@@ -240,8 +240,8 @@ The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"
 | Check for any empty content (including Ratings) | Check for blank content                                                                               | PASS   |
 | Create Dummy Content (Comments + Ratings)       | As a logged in user, create some comments and ratings for each recipe                                 | PASS   |
 | Check Pagination                                | Does any pagination behave as you expect?                                                             | PASS   |
-| HTML Validation                                 | Use External HTML Validator to check for layout errors                                                | ERRORS**   |
-| CSS Validation                                  | Use External CSS Validator to check for layout errors/bad practices                                   | ERRORS*   |
+| HTML Validation                                 | Use External HTML Validator to check for layout errors                                                | ERRORS*|
+| CSS Validation                                  | Use External CSS Validator to check for layout errors/bad practices                                   | ERRORS*|
 | Python Validation                               | Use External python validator/linter to check for layout errors/bad practices                         | PASS   |
 | Browser Testing                                 | Check across various browsers and operating systems for incompatiblities (if available)               | PASS   |
 | Lighthouse Testing                              | Take a lighthouse score for desktop and mobile                                                        | PASS   |
@@ -254,8 +254,8 @@ The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"
 *The CSS Errors all come from bootstraps imported CSS file and are not something I was able to resolve.
 Results are here: (https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fci-pp4-baking.herokuapp.com&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-** W3C identified issues with nested divs inside a button. This is a bootstrap component.
-** Additionally the following error was logged:
+*W3C identified issues with nested divs inside a button. This is a bootstrap component.
+*Additionally the following error was logged:
 "Element a not allowed as child of element ul in this context", this relates to the links applied to the li elements of the filters on the right-hand side, as they are part of a ul parent element.
 The only fix available for this is to replace the ul/li with divs. I then had to restyle them to retain their hover styling.
 ### Code Used
