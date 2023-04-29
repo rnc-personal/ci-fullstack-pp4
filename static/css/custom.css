@@ -50,6 +50,10 @@ li
     font-family: 'Nunito', sans-serif;
 }
 
+.card-action, h2, .nav-link {
+    font-weight: 700;
+}
+
 .nav-link {
     color: var(--site-text) !important;
 }
@@ -71,7 +75,6 @@ li
 a:hover,
 .nav-link:hover {
     color: #fafafa !important;
-    font-weight: 500;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -234,6 +237,7 @@ input:focus-visible {
 .character-name:hover {
     background-color: var(--highlight-light);
 }
+
 
 .card-action:hover {
     background-color: var(--site-text);
