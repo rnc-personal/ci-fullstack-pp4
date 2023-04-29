@@ -254,7 +254,7 @@ The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"
 *The CSS Errors all come from bootstraps imported CSS file and are not something I was able to resolve.
 Results are here: (https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fci-pp4-baking.herokuapp.com&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-** W3C identifed issues with nested divs inside a button. This is a bootstrap component.
+** W3C identified issues with nested divs inside a button. This is a bootstrap component.
 ** Additionally the following error was logged:
 "Element a not allowed as child of element ul in this context", this relates to the links applied to the li elements of the filters on the right-hand side, as they are part of a ul parent element.
 The only fix available for this is to replace the ul/li with divs. I then had to restyle them to retain their hover styling.
