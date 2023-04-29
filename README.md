@@ -1,108 +1,266 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Baking Mama Readme
 
-Welcome rnc-personal,
+# Baking Mama
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Baking Mama is a place for mums to share their own recipes online. Everyone enjoys “Mums Cooking” and many recipes online are either too complicated or are exotic dishes that get made once and forgotten about. Baking Mama aims to be a place to share recipes in a simple way with clear instructions and ingredients that is easy to navigate.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Site URL: [ci-pp4-baking.herokuapp.com](http://ci-pp4-baking.herokuapp.com/)
 
-## Gitpod Reminders
+Preview:
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+![http://ci-pp4-baking.herokuapp.com/](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/main/readme/desktop-baking-mama.png)
 
 ---
 
-Happy coding!
+## CONTENTS
+
+- [User Experience](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#user-experience-ux)
+    - [User Stories](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#user-stories)
+- [Design](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#design)
+    - [Colour Scheme](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#colour-scheme)
+    - [Typography](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#typography)
+    - [Imagery](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#imagery)
+    - [Wireframes](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#wireframes)
+- [Features](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#features)
+    - [General Features on Each Page](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#general-features-on-each-page)
+    - [Future Implementations](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#future-implementations)
+    - [Accessibility](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#accessibility)
+- [Technologies Used](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#technologies-used)
+    - [Languages Used](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#languages-used)
+    - [Frameworks, Libraries & Programs Used](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#frameworks-libraries--programs-used)
+- [Deployment & Local Development](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#deployment--local-development)
+    - [Deployment](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#deployment)
+    - [Local Development](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#local-development)
+        - [How to Fork](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#how-to-fork)
+        - [How to Clone](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#how-to-clone)
+- [Testing](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#testing)
+- [Credits](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#credits)
+    - [Code Used](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#code-used)
+    - [Content](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#content)
+    - [Media](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#media)
+    - [Acknowledgments](notion://www.notion.so/Baking-Mama-Readme-fbd396b3c80644bb9a596dfd2e459221#acknowledgments)
+
+---
+
+## User Experience (UX)
+
+### Initial Discussion
+
+Baking Mama is a group of mums that often shared recipes with each other, often by email and Facebook Messenger, who wanted a way to share those recipes with others and their small group in an easier way.
+
+### Key information for the site
+
+- List of Recipes
+- Being able to filter Recipes by various requirements/options
+- Be able to leave feedback and suggestions on each recipe
+
+## User Stories
+
+### Client Goals
+
+- To be able to view the site on a range of device sizes.
+- Easily Search for a recipe by name or ingredients
+- Filter Recipes by relevant information (e.g, Cooking Time, Difficulty)
+
+### User Goals
+
+- Easily find some of the best / newest recipes
+- Navigate the site easily to find information either through the navigation or a search.
+- To signup and offer feedback and ratings on recipes that I try out.
+
+## Design
+
+The basic design can be viewed in Figma here: [https://www.figma.com/file/wMtqtStV6pOwUY887wxd4V/PP4-UI?node-id=0%3A1&t=ZruK5vsb6ZiQAh1y-1](https://www.figma.com/file/wMtqtStV6pOwUY887wxd4V/PP4-UI?node-id=0%3A1&t=ZruK5vsb6ZiQAh1y-1)
+
+### Colour Scheme
+
+The colour scheme for the site came from the logo. The client wanted a very cute, semi ”Anime” look to it, which was mostly achieve using images and characters throughout the site. Initially I looked at creating a logo that would fit this best and the sites colour scheme was derived from this, with some minor adjustment for contrast and readability.
+
+The main palette is made up of 4 key colours:
+
+![Palette](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/pallette.png)
+
+#DF7374 (’highlight-dark’)
+
+#FDE0DE (’highlight-light’)
+
+#FFFFFF(’site-bg’)
+
+#343a40(’site-text’)
+
+Some additional complimentary colors have been used for key bits of data about recipes like the user rating and difficulty scores.
+
+### Typography
+
+Throughout Development I was using a standard Bootstrap Font but felt that it did not lend itself well to the look and feel of the site. Although functional, it was a bit too serious for the brief of the site. The font was replaced with Nunito from Google Fonts as this is rounded, more ‘friendly’ feeling font that is not too overly stylised or cartoonish;
+
+Nunito:
+
+![Font](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/font.png)
+
+### Imagery
+
+The imagery was a key part of making the site exciting and attractive to visitors. The sites design overall needed to be simple and easy to navigate with the imagery being the key feature about a recipe visually. The client wanted to go for very professional looking, blogger style photography shots with lots of depth of field that really focused on the food itself. 
+
+All images for the site were generated using Midjourney.
+
+### Wireframes
+
+Before the Figma mockup I created a brief wirefame (below), This helped when looking around for Bootstrap templates to fit around the planned design.
+
+![wireframes-pp4.png](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/wireframes-pp4.png)
+
+## Features
+
+### Site General Features
+
+Each page has as responsive navbar at the top, which also serve as the sites main search as well as footer that provides some quick links to navigate to the various categories / filters for the recipes.
+
+- Home
+    - Responsive Hero Slider: Links to selected recipes and shows of some of the photography. Can be edited via the admin panel.
+- Card Section
+    - Lists out the 4 newest recipes on the site and the 8 highest rated recipes below that.
+- Call To Action
+    - A place for some additional text content about the site to live. Can be edited in the admin.
+- Promo/About;
+    - Small Area for an image and some text
+- Recipe listings
+    - Recipes list features several filters to navigate through the recipes
+        - Category
+        - Rating
+        - Cooking Time
+        - Difficulty
+- Recipe
+    - Image
+    - Instructions
+    - Ingredients
+    - Time to Cook
+    - Difficulty Rating
+    - Average Score from Users
+    - Leave a comment+rating (If logged in)
+    - Baking Mama tips (based on difficulty rating)
+
+### Future Implementations
+
+Some features I would like to implement are:
+
+- Apply to Be an Author
+    - Current Users can fill out an additional form with some personal info and they an be give permission to publish or submit articles for an admin to approve and publish
+- Nested Comments
+    - Use a plugin like Disqus or develop myself, a way for users to reply to each others comments on a recipe to get a better flow of conversation going
+
+### Accessibility
+
+I planned to use a bootstrap template / components for much of the layout so care was taken to find good assets that had accessibility options implemented well as this ensured nothing would be missed.
+
+While initially the colour scheme for the site appeared to be okay for contrast and legibility , the testing towards the end of development revealed that some of the buttons with hover state changes were not really ideal. These were all changed out to be much higher contrast without impacting the look and feel of the site too much.
+
+## Technologies Used
+
+### Languages Used
+
+The site was put developed using HTML/CSS/JS/Python
+
+### Frameworks, Libraries & Programs Used
+
+The site was built using the Django framework for Python, which is the most popular web application framework for the language. A few additional libraries were added to improve on it’s built-in functionality.
+
+Most notably summernote for enhanced content editing, Crispy Forms for handling forms(comments/ratings) and cloudinay for image hosting/CDN.
+
+## Deployment & Local Development
+
+### Deployment
+
+By following the steps below , part of the deployment process will be taken care of for you.
+For a full deployment:
+
+- Change the DEBUG setting in you main project folders settings.py file to "False" (no quotes)
+- Remove the DISABLE_COLLECTSTATIC variable inside of Heroku
+- Connect to Github in the deploy tab of the project
+- Go the the deploy tab of the project, at the bottom the 'Manual Deploy' option will deploy the project from the branch that is currenly selected
+- Optionally you can enable automatic deploys each time a new commit is made. This isnt recommend while development is ongoing necesssarily as it is quicker to view changes locally and many times it will require changing the debug setting each time you want to view the 'live' site hosted on Heroku.
+
+### Local Development
+
+Once the project is forked or checked out, you will need to check in baking_mama/settings.py and set the DEBUG variable to 'False' (without quotes).
+You will also need to setup a Heroku, Cloudinary and ElephantSQL account:
+
+You will need to replace 2 keys within the settings.py and env.py files for your own deployment.
+
+### Elephant SQL(elephantsql.com):
+
+- Create an Account
+- Click “Create New Instance”
+- Set up your plan;
+- Give your plan a Name (this is commonly the name of the project)
+    - Select the Tiny Turtle (Free) plan
+    - You can leave the Tags field blank
+- Click “Select Region”
+    - Select a data center near you
+    - If you receive a message saying "Error: No cluster available in your-chosen-data-center yet", choose another region
+- Click Review and check the details
+- Return to the ElephantSQL dashboard and click on the database instance name for this project
+- Copy your ElephantSQL database URL using the Copy icon. It will start with postgres://
+
+### Cloudinary(cloudinary.com):
+
+- Copy your CLOUDINARY_URL e.g. API Environment Variable.
+- Add Cloudinary URL to env.py (should look like os.environ["CLOUDINARY_URL"] = "cloudinary://************************" )
+
+### Heroku(heroku.com):
+
+- Create an Account
+- Top Right, Create new Heroku App
+    - APP_NAME, Location = Europe
+    - Open the settings tab
+    - Click Reveal Config Vars
+    - Add a Config Var called DATABASE_URL
+    - Note: This is the ElephantSQL database url you copied in the previous step
+- Back in the editor, edit the env.py file and change the below line so it has your unique key in:
+    - os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
+- Replace the secret key value with some value (doesnt matter what it is but it should not be easily guessed or shared).
+
+The settings.py file has been configured to use the SECRET_KEY and DATABASE_URL variables automatically and will update the project with the value you enter for your own project. 
+
+Back in Heroku/settings/reveal config vars, add the cloudinary key (CLOUDINARY_URL, cloudinary://************************)
+
+Finally add DISABLE_COLLECTSTATIC to Heroku Config Vars and set the value to 1. This is temporary for development and will need to be removed prior to launching the project yourself. Having it set to 1 means that django is serving the assets locally , when it is disabled, Cloudinary will serve them for you.
+
+The directories and config has already been done for you, you just ned to replace the keys with your own.
+
+The final step is updateding your settings.py file in the main project directory.
+The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"] needs to be updated to match the name of your Heroku project you just created. It always ends with "...herokuapp.com", the localhost must remain there.
+
+
+## Testing
+| Task                                            | Description                                                                                           | Status |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------ |
+| Check all Links and Buttons                     | Manually test all links and buttons, for broken links. Do broken links take you to a proper 404 page? | PASS   |
+| Spell Check                                     | Check in content and templates for any typos and correct them                                         | PASS   |
+| Check for any empty content (including Ratings) | Check for blank content                                                                               | PASS   |
+| Create Dummy Content (Comments + Ratings)       | As a logged in user, create some comments and ratings for each recipe                                 | PASS   |
+| Check Pagination                                | Does any pagination behave as you expect?                                                             | PASS   |
+| HTML Validation                                 | Use External HTML Validator to check for layout errors                                                | PASS   |
+| CSS Validation                                  | Use External CSS Validator to check for layout errors/bad practices                                   | PASS   |
+| Python Validation                               | Use External python validator/linter to check for layout errors/bad practices                         | PASS   |
+| Browser Testing                                 | Check across various browsers and operating systems for incompatiblities (if available)               | PASS   |
+| Lighthouse Testing                              | Take a lighthouse score for desktop and mobile                                                        | PASS   |
+| Responsive Testing                              | Test on a mobile device for any layout issues                                                         | PASS   |
+| 404 page                                        | Check that the 404 page only displays for incorrect links and not links that should be working        | PASS   |
+| Login and Signup                                | Check new users can signupand then login                                                              | PASS   |
+
+
+### Code Used
+- Boostrap template: "Start bootstrap" (https://startbootstrap.com/previews/blog-post)
+- No direct code has been used from an external source, though a combination of Stack overflow, dajngo documentation and blog posts have been looked up for reference purposes only
+
+### Content
+All content was written by ChatGPT4 aside from Home Page CTA(Calls to Action)
+
+
+### Media
+All Images generated by Midjourney V5
+
+
+
+
