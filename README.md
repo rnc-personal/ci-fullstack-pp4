@@ -8,7 +8,7 @@ Site URL: [ci-pp4-baking.herokuapp.com](http://ci-pp4-baking.herokuapp.com/)
 
 Preview:
 
-![http://ci-pp4-baking.herokuapp.com/](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/main/readme/desktop-baking-mama.png)
+![http://ci-pp4-baking.herokuapp.com/](https://raw.githubusercontent.com/rnc-personal/CI-First-Project/main/readme/desktop-baking-mama.png)
 
 ---
 
@@ -78,7 +78,7 @@ The colour scheme for the site came from the logo. The client wanted a very cute
 
 The main palette is made up of 4 key colours:
 
-![Palette](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/pallette.png)
+![Palette](https://raw.githubusercontent.com/rnc-personal/CI-First-Project/main/readme/Untitled.png)
 
 #DF7374 (’highlight-dark’)
 
@@ -96,7 +96,7 @@ Throughout Development I was using a standard Bootstrap Font but felt that it di
 
 Nunito:
 
-![Font](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/font.png)
+![Font](https://raw.githubusercontent.com/rnc-personal/CI-First-Project/main/readme/Untitled%201.png)
 
 ### Imagery
 
@@ -108,7 +108,7 @@ All images for the site were generated using Midjourney.
 
 Before the Figma mockup I created a brief wirefame (below), This helped when looking around for Bootstrap templates to fit around the planned design.
 
-![wireframes-pp4.png](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/wireframes-pp4.png)
+![wireframes-pp4.png](https://raw.githubusercontent.com/rnc-personal/CI-First-Project/main/readme/wireframes-pp4.png)
 
 ## Features
 
