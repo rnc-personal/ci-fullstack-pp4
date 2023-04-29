@@ -72,7 +72,7 @@ li
     font-size: 2rem;
 }
 
-a:hover,
+
 .nav-link:hover {
     color: #fafafa !important;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -94,7 +94,10 @@ li>a:hover {
     color: var(--site-bg);
 }
 
-
+.inline-link:hover {
+    color: var(--site-text);
+    font-weight: 500;
+}
 
 /* Custom Classes */
 
