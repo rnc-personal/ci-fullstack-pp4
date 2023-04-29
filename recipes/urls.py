@@ -9,4 +9,3 @@ urlpatterns = [
     path('404/', Custom404View.as_view(), name='404'),
 ]
 
-# path('newest/', views.HomeRecentRecipesView.as_view(), name='newest_recipes'),
