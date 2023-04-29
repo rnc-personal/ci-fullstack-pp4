@@ -193,6 +193,17 @@ a:hover {
     width: 100%; /* Make sure the image fills the container */
 }
 
+.messages-fixed {
+    right: -40% !important;
+    top: 10rem;
+    background-color: var(--highlight-light);
+    color: var(--site-text);
+    font-weight: 700;
+    height: 3rem;
+    z-index: 40;
+    width: 35rem;
+}
+
 /* Overrides */
 .navbar-toggler:focus {
     box-shadow: none;
@@ -334,5 +345,11 @@ input:focus-visible {
     }
     .copyright-block p {
         font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .messages-fixed {
+        display: none;
     }
 }

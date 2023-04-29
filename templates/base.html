@@ -59,22 +59,34 @@
                                         <div class="col py-2 px-4">
                                             <h5>By Category</h5>
                                             <div class="list-unstyled mb-0">
-                                                <div><a class="link-highlight" href="/category/?category=bakery">Bakery</a></div>
-                                                <div><a class="link-highlight" href="/category/?category=drinks">Drinks</a></div>
-                                                <div><a class="link-highlight" href="/category/?category=fine-dining">Fine Dining</a></div>
-                                                <div><a class="link-highlight" href="/category/?category=health">Health</a></div>
-                                                <div><a class="link-highlight" href="/category/?category=snacks">Snacks</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/category/?category=bakery">Bakery</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/category/?category=drinks">Drinks</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/category/?category=fine-dining">Fine Dining</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/category/?category=health">Health</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/category/?category=snacks">Snacks</a></div>
                                             </div>
                                         </div>
 
                                         <div class="col py-2 px-4">
                                             <h5>By Time</h5>
                                             <div class="list-unstyled mb-0">
-                                                <div><a class="link-highlight" href="/time/?cooking_time_minutes_lt=30">Under 30 mins</a></div>
-                                                <div><a class="link-highlight" href="/time/?cooking_time_minutes_lt=60">Under 60 mins</a></div>
-                                                <div><a class="link-highlight" href="/time/?cooking_time_minutes_lt=90">Under 90 mins</a></div>
-                                                <div><a class="link-highlight" href="/time/?cooking_time_minutes_lt=120">Under 2 hours</a></div>
-                                                <div><a class="link-highlight" href="/time/?cooking_time_minutes_lt=240">Under 4 hours</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/time/?cooking_time_minutes_lt=30">Under 30 mins</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/time/?cooking_time_minutes_lt=60">Under 60 mins</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/time/?cooking_time_minutes_lt=90">Under 90 mins</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/time/?cooking_time_minutes_lt=120">Under 2 hours</a>
+                                                </div>
+                                                <div><a class="link-highlight"
+                                                        href="/time/?cooking_time_minutes_lt=240">Under 4 hours</a>
+                                                </div>
                                                 <div><a class="link-highlight" href="/time/">Dont Mind</a></div>
                                             </div>
                                         </div>
@@ -82,22 +94,32 @@
                                         <div class="col py-2 px-4">
                                             <h5>By Score</h5>
                                             <div class="list-unstyled mb-0">
-                                                <div><a class="link-highlight" href="/rating/?rating_lt=3">Rating Less than 3</a></div>
-                                                <div><a class="link-highlight" href="/rating/?rating_lt=5">Rating Less than 5</a></div>
-                                                <div><a class="link-highlight" href="/rating/?rating_lt=7">Rating Less than 7</a></div>
-                                                <div><a class="link-highlight" href="/rating/?rating_lt=9">Rating Less than 9</a></div>
-                                                <div><a class="link-highlight" href="/rating/?rating_=10">Rating Above 9</a></div>
+                                                <div><a class="link-highlight" href="/rating/?rating_lt=3">Rating Less
+                                                        than 3</a></div>
+                                                <div><a class="link-highlight" href="/rating/?rating_lt=5">Rating Less
+                                                        than 5</a></div>
+                                                <div><a class="link-highlight" href="/rating/?rating_lt=7">Rating Less
+                                                        than 7</a></div>
+                                                <div><a class="link-highlight" href="/rating/?rating_lt=9">Rating Less
+                                                        than 9</a></div>
+                                                <div><a class="link-highlight" href="/rating/?rating_=10">Rating Above
+                                                        9</a></div>
                                             </div>
                                         </div>
 
                                         <div class="col py-2 px-4">
                                             <h5>By Difficulty</h5>
                                             <div class="list-unstyled mb-0">
-                                                <div><a class="link-highlight" href="/difficulty/?difficulty=1">Easy</a></div>
-                                                <div><a class="link-highlight" href="/difficulty/?difficulty=2">Intermediate</a></div>
-                                                <div><a class="link-highlight" href="/difficulty/?difficulty=3">Medium</a></div>
-                                                <div><a class="link-highlight" href="/difficulty/?difficulty=4">Expert</a></div>
-                                                <div><a class="link-highlight" href="/difficulty/?difficulty=5">Pro</a></div>
+                                                <div><a class="link-highlight" href="/difficulty/?difficulty=1">Easy</a>
+                                                </div>
+                                                <div><a class="link-highlight"
+                                                        href="/difficulty/?difficulty=2">Intermediate</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/difficulty/?difficulty=3">Medium</a></div>
+                                                <div><a class="link-highlight"
+                                                        href="/difficulty/?difficulty=4">Expert</a></div>
+                                                <div><a class="link-highlight" href="/difficulty/?difficulty=5">Pro</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -111,13 +133,27 @@
                         <form method="GET" class="d-flex rounded-input" action="{% url 'search_results' %}">
                             <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}"
                                 class="form-control border-0 mr-2" />
-                            <button type="submit" class="btn accent-light text-dark border-0" style="margin-left: 10px;">Search</button>
+                            <button type="submit" class="btn accent-light text-dark border-0"
+                                style="margin-left: 10px;">Search</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+
+    <div class="container position-absolute">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show messages-fixed" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <main class="flex-shrink-0 main-bg">
 
@@ -146,11 +182,20 @@
                     </a>
                 </div>
                 <div class="copyright-block">
-                    <img src="{% static 'img/baking-mama-footer.png' %}" alt="Baking Mama Copyright 2023" class="character-link-image">
+                    <img src="{% static 'img/baking-mama-footer.png' %}" alt="Baking Mama Copyright 2023"
+                        class="character-link-image">
                     <p class="text-white">Copyright Baking Mama 2023</p>
                 </div>
             </div>
         </div>
     </footer>
 
+
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 250000);
+    </script>
 </body>
