@@ -232,17 +232,22 @@ The final step is updateding your settings.py file in the main project directory
 The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"] needs to be updated to match the name of your Heroku project you just created. It always ends with "...herokuapp.com", the localhost must remain there.
 
 
-
-### How to Fork
-
-Place instructions on how to fork your project here.
-
-### How to Clone
-
-Place instructions on how to clone your project here.
-
 ## Testing
-
+| Task                                            | Description                                                                                           | Status |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------ |
+| Check all Links and Buttons                     | Manually test all links and buttons, for broken links. Do broken links take you to a proper 404 page? | PASS   |
+| Spell Check                                     | Check in content and templates for any typos and correct them                                         | PASS   |
+| Check for any empty content (including Ratings) | Check for blank content                                                                               | PASS   |
+| Create Dummy Content (Comments + Ratings)       | As a logged in user, create some comments and ratings for each recipe                                 | PASS   |
+| Check Pagination                                | Does any pagination behave as you expect?                                                             | PASS   |
+| HTML Validation                                 | Use External HTML Validator to check for layout errors                                                | PASS   |
+| CSS Validation                                  | Use External CSS Validator to check for layout errors/bad practices                                   | PASS   |
+| Python Validation                               | Use External python validator/linter to check for layout errors/bad practices                         | PASS   |
+| Browser Testing                                 | Check across various browsers and operating systems for incompatiblities (if available)               | PASS   |
+| Lighthouse Testing                              | Take a lighthouse score for desktop and mobile                                                        | PASS   |
+| Responsive Testing                              | Test on a mobile device for any layout issues                                                         | PASS   |
+| 404 page                                        | Check that the 404 page only displays for incorrect links and not links that should be working        | PASS   |
+| Login and Signup                                | Check new users can signupand then login                                                              | PASS   |
 
 
 ## Credits
