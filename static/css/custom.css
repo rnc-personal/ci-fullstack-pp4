@@ -245,6 +245,10 @@ input:focus-visible {
     background-color: var(--site-text);
     color: var(--site-bg);
 }
+
+.btn-lg.fw-bold.accent-dark a:hover {
+    color: var(--highlight-light);
+}
 /* Media Queries */
 
 @media screen and (max-width:1200px) {
