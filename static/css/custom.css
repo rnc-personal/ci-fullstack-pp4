@@ -84,7 +84,6 @@ li>a:hover {
 }
 
 .page-link {
-    background-color: var(--highlight-light);
     color: var(--site-text);
     border: none;
     margin: 0 2px;
