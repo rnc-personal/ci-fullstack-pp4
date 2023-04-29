@@ -126,6 +126,10 @@ li>a:hover {
     margin-left: 40%;
 }
 
+.not-found-img {
+    width: 50%;
+}
+
 /* Overrides */
 .navbar-toggler:focus {
     box-shadow: none;
