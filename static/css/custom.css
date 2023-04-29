@@ -246,8 +246,13 @@ input:focus-visible {
     color: var(--site-bg);
 }
 
-a:hover {
-    color: var(--site-bg);
+
+.link-highlight {
+    color: var(--site-text) !important;
+}
+
+.link-highlight:hover {
+    color: var(--highlight-dark) !important;
 }
 /* Media Queries */
 
