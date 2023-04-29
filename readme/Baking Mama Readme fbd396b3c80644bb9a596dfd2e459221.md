@@ -8,7 +8,7 @@ Site URL: [ci-pp4-baking.herokuapp.com](http://ci-pp4-baking.herokuapp.com/)
 
 Preview:
 
-![https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/main/readme/desktop-baking-mama.png](http://ci-pp4-baking.herokuapp.com/)
+![http://ci-pp4-baking.herokuapp.com/](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/main/readme/desktop-baking-mama.png)
 
 ---
 
@@ -78,7 +78,7 @@ The colour scheme for the site came from the logo. The client wanted a very cute
 
 The main palette is made up of 4 key colours:
 
-![Untitled](Baking%20Mama%20Readme%20fbd396b3c80644bb9a596dfd2e459221/Untitled.png)
+![Palette](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/pallette.png)
 
 #DF7374 (’highlight-dark’)
 
@@ -92,11 +92,11 @@ Some additional complimentary colors have been used for key bits of data about r
 
 ### Typography
 
-Throughout Development I was using a standard Bootstrap Font butfelt that it did not lend itself well to the look and feel of the site. Although functional, it was a bit too serious for the brief of the site. The font was replaced with Nunito from Google Fonts as this is rounded, more ‘friendly’ feeling font that is not too overly stylised or cartoonish;
+Throughout Development I was using a standard Bootstrap Font but felt that it did not lend itself well to the look and feel of the site. Although functional, it was a bit too serious for the brief of the site. The font was replaced with Nunito from Google Fonts as this is rounded, more ‘friendly’ feeling font that is not too overly stylised or cartoonish;
 
 Nunito:
 
-![Untitled](Baking%20Mama%20Readme%20fbd396b3c80644bb9a596dfd2e459221/Untitled%201.png)
+![Font](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/font.png)
 
 ### Imagery
 
@@ -108,7 +108,7 @@ All images for the site were generated using Midjourney.
 
 Before the Figma mockup I created a brief wirefame (below), This helped when looking around for Bootstrap templates to fit around the planned design.
 
-![wireframes-pp4.png](Baking%20Mama%20Readme%20fbd396b3c80644bb9a596dfd2e459221/wireframes-pp4.png)
+![wireframes-pp4.png](https://raw.githubusercontent.com/rnc-personal/ci-fullstack-pp4/527823ff73c3437c8d8808f72fbdd4022cf935f9/readme/wireframes-pp4.png)
 
 ## Features
 
@@ -169,15 +169,62 @@ Most notably summernote for enhanced content editing, Crispy Forms for handling 
 
 ## Deployment & Local Development
 
-👩🏻‍💻 View an example of a completed Deployment & Local Development section [here](https://github.com/kera-cudmore/TheQuizArms#Deployment)
-
 ### Deployment
 
 Include instructions here on how to deploy your project. For your first project you will most likely be using GitHub Pages.
 
 ### Local Development
 
-The local development section gives instructions on how someone else could make a copy of your project to play with on their local machine. This section will get more complex in the later projects, and can be a great reference to yourself if you forget how to do this.
+Once the project is forked or checked out, you will need to check in baking_mama/settings.py and set the DEBUG variable to 'False' (without quotes).
+You will also need to setup a Heroku, Cloudinary and ElephantSQL account:
+
+You will need to replace 2 keys within the settings.py and env.py files for your own deployment.
+
+### Elephant SQL(elephantsql.com):
+
+- Create an Account
+- Click “Create New Instance”
+- Set up your plan;
+- Give your plan a Name (this is commonly the name of the project)
+    - Select the Tiny Turtle (Free) plan
+    - You can leave the Tags field blank
+- Click “Select Region”
+    - Select a data center near you
+    - If you receive a message saying "Error: No cluster available in your-chosen-data-center yet", choose another region
+- Click Review and check the details
+- Return to the ElephantSQL dashboard and click on the database instance name for this project
+- Copy your ElephantSQL database URL using the Copy icon. It will start with postgres://
+
+### Cloudinary(cloudinary.com):
+
+- Copy your CLOUDINARY_URL e.g. API Environment Variable.
+- Add Cloudinary URL to env.py (should look like os.environ["CLOUDINARY_URL"] = "cloudinary://************************" )
+
+### Heroku(heroku.com):
+
+- Create an Account
+- Top Right, Create new Heroku App
+    - APP_NAME, Location = Europe
+    - Open the settings tab
+    - Click Reveal Config Vars
+    - Add a Config Var called DATABASE_URL
+    - Note: This is the ElephantSQL database url you copied in the previous step
+- Back in the editor, edit the env.py file and change the below line so it has your unique key in:
+    - os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
+- Replace the secret key value with some value (doesnt matter what it is but it should not be easily guessed or shared).
+
+The settings.py file has been configured to use the SECRET_KEY and DATABASE_URL variables automatically and will update the project with the value you enter for your own project. 
+
+Back in Heroku/settings/reveal config vars, add the cloudinary key (CLOUDINARY_URL, cloudinary://************************)
+
+Finally add DISABLE_COLLECTSTATIC to Heroku Config Vars and set the value to 1. This is temporary for development and will need to be removed prior to launching the project yourself. Having it set to 1 means that django is serving the assets locally , when it is disabled, Cloudinary will serve them for you.
+
+The directories and config has already been done for you, you just ned to replace the keys with your own.
+
+The final step is updateding your settings.py file in the main project directory.
+The line that reads: ALLOWED_HOSTS = ["ci-pp4-baking.herokuapp.com", "localhost"] needs to be updated to match the name of your Heroku project you just created. It always ends with "...herokuapp.com", the localhost must remain there.
+
+
 
 ### How to Fork
 
@@ -189,30 +236,23 @@ Place instructions on how to clone your project here.
 
 ## Testing
 
-Start as you mean to go on - and get used to writing a [TESTING.md](http://testing.md/) file from the very first project!
 
-Testing requirements aren't massive for your first project, however if you start using a [TESTING.md](http://testing.md/) file from your first project you will thank yourself later when completing your later projects, which will contain much more information.
-
-Use this part of the README to link to your [TESTING.md](http://testing.md/) file - you can view the example [TESTING.md](http://testing.md/) file [here](notion://www.notion.so/milestone1-testing.md)
 
 ## Credits
 
-👩🏻‍💻 View an example of a completed Credits section [here](https://github.com/kera-cudmore/BookWorm#Credits)
 
-The Credits section is where you can credit all the people and sources you used throughout your project.
 
 ### Code Used
 
-If you have used some code in your project that you didn't write, this is the place to make note of it. Credit the author of the code and if possible a link to where you found the code. You could also add in a brief description of what the code does, or what you are using it for here.
+
 
 ### Content
 
-Who wrote the content for the website? Was it yourself - or have you made the site for someone and they specified what the site was to say? This is the best place to put this information.
+
 
 ### Media
 
-If you have used any media on your site (images, audio, video etc) you can credit them here. I like to link back to the source where I found the media, and include where on the site the image is used.
+
 
 ### Acknowledgments
 
-If someone helped you out during your project, you can acknowledge them here! For example someone may have taken the time to help you on slack with a problem. Pop a little thank you here with a note of what they helped you with (I like to try and link back to their GitHub or Linked In account too). This is also a great place to thank your mentor and tutor support if you used them.
