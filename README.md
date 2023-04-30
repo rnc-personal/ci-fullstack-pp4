@@ -59,12 +59,19 @@ Baking Mama is a group of mums that often shared recipes with each other, often 
 - To be able to view the site on a range of device sizes.
 - Easily Search for a recipe by name or ingredients
 - Filter Recipes by relevant information (e.g, Cooking Time, Difficulty)
+- Create an Account, Login, Leave Comments and ratings on recipes
 
 ### User Goals
 
 - Easily find some of the best / newest recipes
-- Navigate the site easily to find information either through the navigation or a search.
+- Navigate the admin area easily to find information either through the navigation or a search.
 - To signup and offer feedback and ratings on recipes that I try out.
+- CRUD functionality for Recipes comments and users.
+- Approve comments and Ratings
+- Update Homepage content
+
+A full Breakdown of all User Stories and completed tasks can be found here:
+[GitHub Project](https://github.com/users/rnc-personal/projects/2/views/2?layout=board)
 
 ## Design
 
