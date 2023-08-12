@@ -5,7 +5,7 @@ from django.views.generic import ListView
 from django.http import Http404, HttpResponseNotFound
 from django.db import models
 from .models import Recipe, HeroSlider, HomepageCTA
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
 
 
 class RecipeListView(generic.ListView):
@@ -133,7 +133,7 @@ class RecipeDetailView(View):
         )
 
 class RecipeSubmissionView(View):
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
 
         return render(
             request,
@@ -143,7 +143,7 @@ class RecipeSubmissionView(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe_submission = get_object_or_404(queryset, slug=slug)
 
