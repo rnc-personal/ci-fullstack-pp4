@@ -1,33 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% load crispy_forms_tags %}
 {% load static %}
 
-            <!-- Recipe form-->
-<section class="mb-5">
-    <div class="card bg-light">
-        <div class="card-body">
-            {% if not user.is_authenticated %}
-            <h3>Login to Submit Your Recipe</h3>
-            <p><a href="/accounts/login/" class="inline-link">Login</a> to submit a recipe or <a
-                    href="/accounts/signup/" class="inline-link">Signup</a> here</p>
-            {% endif %}
-            {% if commented %}
-            <div class="alert alert-success" role="alert">
-                Your recipe is awaiting approval
-            </div>
-            {% else %}
-            {% if user.is_authenticated %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-lg-8 mt-3">
+            <!-- Post content-->
+            <article>
 
-            <h3>Submit your recipe for a chance to be featured!</h3>
-            <p>Posting as: {{ user.username }}</p>
-            <form method="post" class="d-flex flex-column" style="margin-top: 1.3em;">
-                {{ recipe_form|crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn accent-dark btn-lg mt-2">Submit</button>
-            </form>
-            {% endif %}
-            {% endif %}
+            <!-- Recipe form-->
+                <section class="mb-5">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            {% if not user.is_authenticated %}
+                            <h3>Login to Submit Your Recipe</h3>
+                            <p><a href="/accounts/login/" class="inline-link">Login</a> to submit a recipe or <a
+                                    href="/accounts/signup/" class="inline-link">Signup</a> here</p>
+                            {% endif %}
+                            {% if commented %}
+                            <div class="alert alert-success" role="alert">
+                                Your recipe is awaiting approval
+                            </div>
+                            {% else %}
+                            {% if user.is_authenticated %}
+
+                            <h3>Submit your recipe for a chance to be featured!</h3>
+                            <p>Posting as: {{ user.username }}</p>
+                            <form method="post" class="d-flex flex-column" style="margin-top: 1.3em;">
+                                {{ recipe_form|crispy }}
+                                {% csrf_token %}
+                                <button type="submit" class="btn accent-dark btn-lg mt-2">Submit</button>
+                            </form>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+            </article>
         </div>
     </div>
-</section>
+</div>
+    
+
+{% endblock %}
