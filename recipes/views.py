@@ -132,6 +132,43 @@ class RecipeDetailView(View):
             },
         )
 
+class RecipeSubmissionView(View):
+    def get(self, request, slug, *args, **kwargs):
+
+        return render(
+            request,
+            'recipe_submission.html',
+            {
+                'recipe_form': RecipeForm(),
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Recipe.objects.filter(status=1)
+        recipe_submission = get_object_or_404(queryset, slug=slug)
+
+        recipe_form = RecipeForm(data=request.POST)
+        if recipe_form.is_valid():
+            recipe_form.instance.email = request.user.email
+            recipe_form.instance.name = request.user.username
+            recipe_submission = recipe_form.save(commit=False)
+            # comment.recipe = recipe
+            recipe_submission.save()
+        else:
+            recipe_form = RecipeForm()
+
+        return render(
+            request,
+            'recipe_detail.html',
+            {
+                'recipe': recipe,
+                'comments': comments,
+                'commented': True,
+                'comment_form': comment_form,
+                
+            },
+        )
+
 class HomeRecipesView(generic.ListView):
     template_name = 'index.html'
     def get(self, request):
