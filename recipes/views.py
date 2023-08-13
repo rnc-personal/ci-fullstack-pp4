@@ -149,16 +149,17 @@ class RecipeSubmissionView(View):
             if recipe_form.is_valid():
                 recipe_form.instance.email = request.user.email
                 recipe_form.instance.name = request.user.username
-                recipe.slug = slugify(recipe.title)
                 recipe = recipe_form.save(commit=False)
+                recipe.slug = slugify(recipe.title)
                 recipe.author = request.user
                 recipe.save()
-                return redirect('recipe_listings')
+                return redirect('recipe_submission')
         else:
             recipe_form = RecipeForm()
     
         context = {
-            'form': recipe_form
+            'form': recipe_form,
+            'submitted': True,
         }
         return render(
             request,
