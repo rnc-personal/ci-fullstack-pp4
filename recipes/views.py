@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count, Avg, Q
 from django.views import generic, View
 from django.views.generic import ListView
 from django.http import Http404, HttpResponseNotFound
 from django.db import models
+from django.utils.text import slugify
 from .models import Recipe, HeroSlider, HomepageCTA
 from .forms import CommentForm, RecipeForm
 
@@ -142,21 +143,28 @@ class RecipeSubmissionView(View):
                 'recipe_form': RecipeForm(),
             },
         )
-def post(self, request, *args, **kwargs):
-    if request.method == 'POST':
-        form = RecipeForm(request.POST)
-        if form.is_valid():
-            recipe = form.save(commit=False)
-            recipe.author = request.user
-            recipe.save()
-            return redirect('recipe_listings')
-    else:
-        form = RecipeForm()
+    def post(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            recipe_form = RecipeForm(request.POST)
+            if recipe_form.is_valid():
+                recipe_form.instance.email = request.user.email
+                recipe_form.instance.name = request.user.username
+                recipe.slug = slugify(recipe.title)
+                recipe = recipe_form.save(commit=False)
+                recipe.author = request.user
+                recipe.save()
+                return redirect('recipe_listings')
+        else:
+            recipe_form = RecipeForm()
     
-    context = {
-        'form': form
-    }
-    return render(request, 'recipe_submission.html', context)
+        context = {
+            'form': recipe_form
+        }
+        return render(
+            request,
+            'recipe_submission.html',
+            context
+            )
 
 
 class HomeRecipesView(generic.ListView):
