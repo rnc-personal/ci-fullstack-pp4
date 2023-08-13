@@ -25,6 +25,7 @@ urlpatterns = [
     path('category/', views.RecipeByCategoryView.as_view(), name='category_view'),
     path('difficulty/', views.RecipeByDifficultyView.as_view(), name='difficulty_view'),
     path('submit/', views.RecipeSubmissionView.as_view(), name='recipe_submission'),
+    path('confirm/', views.SubmissionConfirmView.as_view(), name='submission_confirm'),
     path('time/', views.RecipeByTimeView.as_view(), name='time_view'),
     path('rating/', views.TrendingRecipesListView.as_view(), name='rating_view'),
     path('search/', views.SearchResultsView.as_view(), name='search_results'),

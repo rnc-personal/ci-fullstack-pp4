@@ -59,8 +59,6 @@ class RecipeByTimeView(View):
         return render(request, self.template_name, context)
 
 
-
-
 class RecipeByDifficultyView(View):
     template_name = 'recipe_list.html'
 
@@ -84,7 +82,6 @@ class RecipeByDifficultyView(View):
             }
 
         return render(request, self.template_name, context)
-
 
 
 class RecipeDetailView(View):
@@ -167,6 +164,15 @@ class RecipeSubmissionView(View):
             context
             )
 
+class SubmissionConfirmView(View):
+    def get(self, request, *args, **kwargs):
+        return render(
+            request,
+          'submission_confirm.html',
+            {
+              'submitted': True,
+            },
+        )
 
 class HomeRecipesView(generic.ListView):
     template_name = 'index.html'
