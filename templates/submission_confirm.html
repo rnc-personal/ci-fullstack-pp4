@@ -5,12 +5,34 @@
 {% load static %}
 
 <div class="container mt-5 pt-5">
-    <div class="row">
-        <div class="col-lg-8 mt-3">
-
-            
-
+    <h1>Thanks for Submitting!</h1>
+    <div class="row mb-4">
+        <div class="d-flex flex-no-wrap align-items-center">
+            <img src="{% static 'img/faq_1.png' %}" class="img-fluid">
+            <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Viverra tellus in hac habitasse. Viverra nam libero justo laoreet sit amet.</p>
         </div>
+    </div>
+
+    <div class="row mb-4">
+        <h2>What Happens Next?</h2>
+        <div class="d-flex flex-no-wrap align-items-center">
+            <img src="{% static 'img/faq_2.png' %}" class="img-fluid">
+            <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Viverra tellus in hac habitasse. Viverra nam libero justo laoreet sit amet.</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <h2>What Happens Next?</h2>
+        <div class="d-flex flex-no-wrap align-items-center">
+            <img src="{% static 'img/faq_3.png' %}" class="img-fluid">
+            <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Viverra tellus in hac habitasse. Viverra nam libero justo laoreet sit amet.</p>
+        </div>
+    </div>
+    <div class="col-lg-8 mt-3 pb-5">
+        <h2>What Happens Next?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum et sollicitudin ac orci phasellus. Viverra tellus in hac habitasse. Viverra nam libero justo laoreet sit amet.</p>
+            <a href={% url 'recipe_submission' %} class="btn btn-submit accent-light text-dark border-0">Submit Another?</a>
+            </div>
     </div>
 </div>
 
