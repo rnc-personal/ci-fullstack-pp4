@@ -29,7 +29,7 @@ urlpatterns = [
     path('time/', views.RecipeByTimeView.as_view(), name='time_view'),
     path('rating/', views.TrendingRecipesListView.as_view(), name='rating_view'),
     path('search/', views.SearchResultsView.as_view(), name='search_results'),
-    path('summernote/', include('django_summernote.urls')),
+    # path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('allauth.urls')),
     
 ]
