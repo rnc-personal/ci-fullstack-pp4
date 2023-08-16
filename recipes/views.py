@@ -91,6 +91,10 @@ class RecipeDetailView(View):
         comments = recipe.comments.filter(approved=True).order_by('-created_date')
         avg_rating = recipe.comments.filter(approved=True).aggregate(Avg('rating'))['rating__avg'] or 0
 
+        is_author = False
+        if request.user.is_authenticated:
+            is_author = recipe.author == request.user
+
         return render(
             request,
             'recipe_detail.html',
@@ -100,6 +104,7 @@ class RecipeDetailView(View):
                 'commented': False,
                 'comment_form': CommentForm(),
                 'avg_rating': avg_rating,
+                'is_author': is_author,
             },
         )
 
