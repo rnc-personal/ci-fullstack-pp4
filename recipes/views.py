@@ -198,15 +198,15 @@ class EditRecipeView(View):
         recipe = get_object_or_404(Recipe, slug=slug, author=request.user)
 
         recipe_form = RecipeForm(request.POST, instance=recipe)
-        if form.is_valid():
-            form.save()
+        if recipe_form.is_valid():
+            recipe_form.save()
             return redirect('recipe_detail', slug=slug)
 
         return render(
             request,
             'edit_recipe.html',
             {
-                'form': recipe_form,
+                'recipe_form': recipe_form,
                 'recipe': recipe,
             }
         )
