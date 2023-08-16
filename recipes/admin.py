@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Recipe, Comment, HeroSlider, HomepageCTA
-# from django_summernote.admin import SummernoteModelAdmin
+
 
 # Register your models here.
 
@@ -10,7 +10,7 @@ class RecipeAdmin(admin.ModelAdmin):
     list_filter = ('status', 'created_date', 'updated_date')
     list_display = ('title', 'slug', 'status', 'created_date', 'updated_date')
     search_fields = ('title', 'snippet', 'ingredients', 'instructions')
-    # summernote_fields = ('content', 'ingredients', 'instructions')
+    
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
