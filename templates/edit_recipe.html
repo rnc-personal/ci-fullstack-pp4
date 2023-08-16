@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+  <h1>Edit Recipe</h1>
+  <div style="display:grid; place-items: center;">
+  <form method="post">
+    {% csrf_token %}
+    {{ recipe_form|crispy|safe }}
+    <button type="submit">Save Changes</button>
+  </form>
+
+  {% if form.errors %}
+  <div class="alert alert-danger">
+      <strong>Errors:</strong>
+      <ul>
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+          {% endfor %}
+      </ul>
+  </div>
+  {% endif %}
+  
+
+
+{% endblock %}

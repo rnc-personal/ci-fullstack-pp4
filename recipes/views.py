@@ -179,6 +179,40 @@ class SubmissionConfirmView(View):
             },
         )
 
+
+class EditRecipeView(View):
+    def get(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug, author=request.user)
+
+        recipe_form = RecipeForm(instance=recipe)
+        return render(
+            request,
+            'edit_recipe.html',
+            {
+                'recipe_form': recipe_form,
+                'recipe': recipe,
+            }
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug, author=request.user)
+
+        recipe_form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            form.save()
+            return redirect('recipe_detail', slug=slug)
+
+        return render(
+            request,
+            'edit_recipe.html',
+            {
+                'form': recipe_form,
+                'recipe': recipe,
+            }
+        )
+
+# "Generic" Views for Site Content / Non User Created Content
+
 class HomeRecipesView(generic.ListView):
     template_name = 'index.html'
     def get(self, request):

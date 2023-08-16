@@ -178,7 +178,7 @@
             {% if is_author %}
             <div class="card mb-4">
                 <div class="card-header accent-light">
-                <a href="/edit" class="btn btn-submit accent-dark">
+                <a href="{% url 'edit_recipe' slug=recipe.slug %}" class="btn btn-submit accent-dark">
                     Edit Recipe
                 </a>
                 </div>
