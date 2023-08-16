@@ -45,6 +45,7 @@ Preview:
 - Ability for logged in users to submit recipes for approval by admins (via form/POST request)
 - Post Submission Page with instructions
 - TODO: Users can view own recipes and Edit/Delete them
+- TODO: Update recipes Models so that Instructions and Steps are separate fields for better formatting and editing experience
 - TODO See all Recipes by a user
 
 ## User Experience (UX)
