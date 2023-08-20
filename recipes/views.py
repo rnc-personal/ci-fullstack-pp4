@@ -253,7 +253,7 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query:
-            return self.model.objects.filter(Q(title__icontains=query) | Q(ingredients__icontains=query) | Q(instructions__icontains=query))
+            return self.model.objects.filter(Q(title__icontains=query))
         else:
             return self.model.objects.none()
 
