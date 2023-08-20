@@ -5,8 +5,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+<div class="edit-recipe__form">
   <h1>Edit Recipe</h1>
-  <div style="display:grid; place-items: center;">
   <form method="post">
     {% csrf_token %}
     {{ recipe_form|crispy|safe }}
@@ -18,7 +18,8 @@
     {% csrf_token %}
     <button type="submit">Delete Recipe</button>
   </form>
-{% endif %}
+  {% endif %}
+</div>
 
   {% if form.errors %}
   <div class="alert alert-danger">

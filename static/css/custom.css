@@ -7,12 +7,17 @@
     --rounded-corners-top: 1.25rem;
 }
 
-/* Additional Resets */
-button:focus,
-.btn:focus {
-    outline-style: none;
-    box-shadow: none;
-    border-color: transparent;
+/* Debug * {
+    border: #d50608 dotted 1px;
+} */
+
+/* Additional Resets / Boostrap overrides */
+body {
+    background-color: var(--site-bg);
+}
+
+main {
+    min-height: 1400px;
 }
 
 footer {
@@ -20,6 +25,57 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+
+button:focus,
+.btn:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler:focus>span {
+    color: var(--site-bg);
+}
+
+.card.rounded-add {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card.rounded-add:hover {
+    transform: scale(1.1) translateZ(0);
+    border: 2px solid #df7374;
+    will-change: transform;
+}
+
+.show {
+    top: 100%;
+    right: 8%;
+    left: unset !important;
+    margin-top: -0.125rem !important;
+    z-index: 3 !important;
+}
+
+.rounded-input {
+    border: 2px solid var(--highlight-dark);
+    border-radius: 5px;
+}
+
+.form-control:focus-visible,
+.form-control:focus,
+input:focus-visible {
+    outline: none !important;
+    outline-color: transparent;
+    outline-width: 0px;
+    box-shadow: none;
+}
+
+.btn-lg.fw-bold.accent-dark.text-decoration-none {
+    transition: color 0.2s ease-in-out;
 }
 
 @media screen and (max-width:999px) {
@@ -34,11 +90,6 @@ footer {
 }
 
 /* Utility */
-
-body {
-    background-color: var(--site-bg);
-}
-
 .rounded-add {
     border-radius: var(--rounded-corners-all);
 }
@@ -49,7 +100,6 @@ body {
 }
 
 /* Colours */
-
 .accent-dark {
     background-color: var(--highlight-dark);
 }
@@ -59,7 +109,6 @@ body {
 }
 
 /* Typography */
-
 h1,
 h2,
 h3,
@@ -79,8 +128,8 @@ h1 {
     font-weight: 700;
 }
 
-.card-action,
 h2,
+.card-action,
 .nav-link {
     font-weight: 500;
 }
@@ -90,7 +139,6 @@ h2,
 }
 
 /* HomePage */
-
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.3);
 }
@@ -106,7 +154,6 @@ h2,
 }
 
 /* Menu/Nav */
-
 .nav-link:hover {
     color: #fafafa !important;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -114,7 +161,6 @@ h2,
 
 li>a:hover {
     color: var(--highlight-dark);
-
 }
 
 .page-link {
@@ -138,7 +184,6 @@ a:hover {
 }
 
 /* Custom Classes */
-
 .logo-wrapper {
     width: 125px;
     position: absolute;
@@ -224,9 +269,7 @@ a:hover {
 
 .accounts-footer-decor img {
     display: block;
-    /* Remove any default spacing */
     width: 100%;
-    /* Make sure the image fills the container */
 }
 
 .messages-fixed {
@@ -240,49 +283,14 @@ a:hover {
     width: 35rem;
 }
 
-/* Overrides */
-.navbar-toggler:focus {
-    box-shadow: none;
+.edit-recipe__form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 12rem;
 }
 
-.navbar-toggler:focus>span {
-    color: var(--site-bg);
-}
-
-.card.rounded-add {
-    transition: transform 0.2s ease-in-out;
-}
-
-.card.rounded-add:hover {
-    transform: scale(1.1) translateZ(0);
-    border: 2px solid #df7374;
-    will-change: transform;
-}
-
-.show {
-    top: 100%;
-    right: 8%;
-    left: unset !important;
-    margin-top: -0.125rem !important;
-    z-index: 3 !important;
-}
-
-.rounded-input {
-    border: 2px solid var(--highlight-dark);
-    border-radius: 5px;
-}
-
-.form-control:focus-visible,
-.form-control:focus,
-input:focus-visible {
-    outline: none !important;
-    outline-color: transparent;
-    outline-width: 0px;
-    box-shadow: none;
-}
-
-.btn-lg.fw-bold.accent-dark.text-decoration-none {
-    transition: color 0.2s ease-in-out;
+.edit-recipe__form > * {
+    width: calc(80vw - 40px);
 }
 
 .character-link {
@@ -383,6 +391,15 @@ input:focus-visible {
 
     .copyright-block p {
         font-size: 0.8rem;
+    }
+
+    
+    .edit-recipe__form {
+        margin: 0;
+    }
+
+    .edit-recipe__form > * {
+        width: 100%;
     }
 }
 
