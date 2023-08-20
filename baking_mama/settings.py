@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'recipes',
+    'recipes.templatetags.custom_filters'
 ]
 
 SITE_ID = 1
