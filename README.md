@@ -47,6 +47,10 @@ Preview:
 - TODO: Users can view own recipes and Edit/Delete them
 - TODO: Update recipes Models so that Instructions and Steps are separate fields for better formatting and editing experience
 - TODO See all Recipes by a user
+- Menu Scroll Issue (overflow)
+- Filter out unapproved user submitted recipes (homepage)
+- Placeholder Image missing on recipes
+- "See all" button goes nowhere on homepage
 
 ## User Experience (UX)
 
