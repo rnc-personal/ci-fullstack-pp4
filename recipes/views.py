@@ -217,7 +217,7 @@ class HomeRecipesView(generic.ListView):
     template_name = 'index.html'
     def get(self, request):
         newest_recipes = Recipe.objects.filter(status=1).order_by('-created_date')[:4]
-        trending_recipes = Recipe.objects.all().order_by('-created_date')[:8]
+        trending_recipes = Recipe.objects.filter(status=1).order_by('-created_date')[:8]
         homepage_sliders = HeroSlider.objects.all()
         homepage_content = HomepageCTA.objects.all()
 
