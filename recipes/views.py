@@ -5,6 +5,7 @@ from django.views.generic import ListView
 from django.http import Http404, HttpResponseNotFound
 from django.db import models
 from django.utils.text import slugify
+from django.contrib import messages
 from .models import Recipe, HeroSlider, HomepageCTA
 from .forms import CommentForm, RecipeForm
 
@@ -210,6 +211,20 @@ class EditRecipeView(View):
                 'recipe': recipe,
             }
         )
+
+
+class DeleteRecipeView(View):
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+
+        if recipe.author != request.user:
+            messages.error(request, "You are not authorized to delete this recipe.")
+            return redirect('recipe_detail', slug=slug)
+
+        recipe.delete()
+        messages.success(request, "Recipe Deleted Successfully")
+        return redirect('home')
+
 
 # "Generic" Views for Site Content / Non User Created Content
 

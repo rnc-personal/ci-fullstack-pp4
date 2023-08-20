@@ -5,6 +5,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+
+
   <h1>Edit Recipe</h1>
   <div style="display:grid; place-items: center;">
   <form method="post">
@@ -12,6 +14,13 @@
     {{ recipe_form|crispy|safe }}
     <button type="submit">Save Changes</button>
   </form>
+
+  {% if request.user == recipe.author %}
+  <form method="post" action="{% url 'delete_recipe' slug=recipe.slug %}">
+    {% csrf_token %}
+    <button type="submit">Delete Recipe</button>
+  </form>
+{% endif %}
 
   {% if form.errors %}
   <div class="alert alert-danger">
