@@ -7,13 +7,21 @@
   <div class="carousel-inner">
     {% if homepage_sliders %}
     {% for slider in homepage_sliders %}
-    <!-- <a href="/recipes/{{ slider.recipe.slug }}"> -->
     <div class="carousel-item{% if forloop.first %} active{% endif %}">
       <img src="{{ slider.banner_image.url }} " class="d-block w-100" alt="{{ slider.title }}">
       <div class="carousel-caption">
         <h5>{{ slider.recipe.title }}</h5>
         <p>{{ slider.banner_content }}</p>
-        <a class="btn accent-light card-action">GET COOKING!</a>
+          <a
+          class="btn accent-light card-action"
+          {% if slider.recipe.slug %}
+          href="/recipes/{{ slider.recipe.slug }}"
+          {% else %}
+          href="{{ slider.link_or_text }}"
+          {% endif %} 
+          >
+          GET COOKING!
+          </a>
       </div>
     </div>
     <!-- </a> -->
