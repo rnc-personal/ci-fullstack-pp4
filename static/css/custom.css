@@ -344,6 +344,10 @@ a:hover {
     color: var(--highlight-dark) !important;
 }
 
+.pagination-wrapper {
+    padding: 4rem 0;
+}
+
 /* Media Queries */
 
 @media screen and (max-width:1200px) {

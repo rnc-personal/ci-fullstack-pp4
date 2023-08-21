@@ -77,7 +77,16 @@ class Comment(models.Model):
 
 
 class HeroSlider(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.SET_NULL, related_name='hero_sliders', null=True)
+    RECIPE_TYPE = 'recipe'
+    LINK_TYPE = 'link'
+    SLIDER_TYPE_CHOICES = [
+        (RECIPE_TYPE, 'Recipe'),
+        (LINK_TYPE, 'Link'),
+    ]
+
+    slider_type = models.CharField(max_length=10, default='', choices=SLIDER_TYPE_CHOICES)
+    recipe = models.ForeignKey(Recipe, on_delete=models.SET_NULL, related_name='hero_sliders', null=True, blank=True)
+    link_or_text = models.CharField(max_length=200, blank=True)
     banner_image = CloudinaryField('banner_image', default='placeholder')
     banner_content = models.CharField(max_length=200, unique=True)
 
@@ -85,7 +94,12 @@ class HeroSlider(models.Model):
         ordering = ['recipe']
 
     def __str__(self):
-        return f'{self.recipe.title} - Slider' if self.recipe else 'No Recipe - Slider'
+        if self.slider_type == self.RECIPE_TYPE and self.recipe:
+            return f'{self.recipe.title} - Slider'
+        elif self.slider_type == self.LINK_TYPE:
+            return f'Link - Slider: {self.link_or_text}'
+        else:
+            return 'No Recipe - Slider'
 
 
 class HomepageCTA(models.Model):
