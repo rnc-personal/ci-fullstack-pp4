@@ -27,7 +27,7 @@ class RecipeByCategoryView(View):
         category = request.GET.get('category', None)
 
         if category in dict(Recipe.category.field.choices):
-            recipes = Recipe.objects.filter(category=category)
+            recipes = Recipe.objects.filter(category=category, status=1)
             context = {
                 'category': category,
                 'recipes': recipes,
@@ -44,8 +44,7 @@ class RecipeByTimeView(View):
         time_lt = request.GET.get('cooking_time_minutes_lt', None)
         time_gt = request.GET.get('cooking_time_minutes_gt', None)
 
-
-        recipes = Recipe.objects.all()
+        recipes = Recipe.objects.filter(status=1)
 
         if time_lt is not None:
             recipes = recipes.filter(cooking_time_minutes__lt=time_lt)
@@ -253,7 +252,8 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query:
-            return self.model.objects.filter(Q(title__icontains=query))
+            return self.model.objects.filter(
+                Q(title__icontains=query) & Q(status=1))
         else:
             return self.model.objects.none()
 
@@ -270,7 +270,8 @@ class TrendingRecipesListView(ListView):
         queryset = super().get_queryset().annotate(
             average_score=Avg('comments__rating', filter=models.Q(comments__approved=True))
         ).filter(
-            average_score__gte=min_score
+            average_score__gte=min_score,
+            status=1
         )
 
         return queryset
@@ -278,6 +279,7 @@ class TrendingRecipesListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        active_recipes = Recipe.objects.filter(status=1)
         context['rating_counts'] = {
             'gte_3': Recipe.objects.annotate(avg_rating=Avg('comments__rating', filter=models.Q(comments__approved=True))).filter(avg_rating__gte=3).count(),
             'gte_5': Recipe.objects.annotate(avg_rating=Avg('comments__rating', filter=models.Q(comments__approved=True))).filter(avg_rating__gte=5).count(),
