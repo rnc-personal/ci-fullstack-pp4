@@ -16,13 +16,13 @@
                     <div class="card bg-light">
                         <div class="card-body">
                             <div class="container mt-5 pt-5">
+                                {% if not user.is_authenticated %}
                                     <h1>How Does This Work?</h1>
                                     <div class="row mb-4">
                                         <h3>Login/Signup to Submit Your Recipe</h3>
                                         <div class="d-flex flex-no-wrap align-items-center">
                                             <img src="{% static 'img/faq_1.png' %}" class="img-fluid">
                                             <p class="mx-3">
-                                                {% if not user.is_authenticated %}
                                                 <p> How Do I get Started? <br/>
                                                     <a href="/accounts/login/" class="inline-link">
                                                         Login

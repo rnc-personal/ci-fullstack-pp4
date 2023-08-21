@@ -89,6 +89,21 @@ input:focus-visible {
     background-color: var(--highlight-dark);
 }
 
+.carousel-control-prev , .carousel-control-next {
+    mix-blend-mode: difference;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(255, 249, 249, 0.1);
+    transition: background-color 0.75s ease-in-out;
+}
+.carousel-control-prev:hover {
+    background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 100%);
+}
+.carousel-control-next:hover {
+    background: linear-gradient(270deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 100%);
+}
+
 /* Utility */
 .rounded-add {
     border-radius: var(--rounded-corners-all);
