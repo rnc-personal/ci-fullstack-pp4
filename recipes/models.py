@@ -22,7 +22,7 @@ class Recipe(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes",max_length=100)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    image = CloudinaryField('image', default='placeholder')
+    image = CloudinaryField('image', default='mama.81d4bf9d1fad')
     snippet = models.TextField(max_length=100)
     status = models.IntegerField(choices=STATUS, default=0)
     category = models.CharField(max_length=200, choices=CATEGORY, default='bakery')
