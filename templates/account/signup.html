@@ -5,9 +5,9 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2 mb-4">
+<div class="container accounts-wrapper">
+  <div class="row pt-5 mt-5">
+    <div class="col-md-8 mt-6 offset-md-2 mb-4">
       <h1>{% trans "Sign Up" %}</h1>
 
       <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
@@ -25,5 +25,6 @@
     </div>
   </div>
 </div>
+<div class="accounts-footer-decor w-100"></div>
 
 {% endblock %}
