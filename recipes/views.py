@@ -64,13 +64,13 @@ class RecipeByDifficultyView(View):
 
     def get(self, request, *args, **kwargs):
         difficulty = request.GET.get('difficulty', None)
-        easy_recipes = Recipe.objects.filter(difficulty=1).order_by('-created_date')
-        novice_recipes = Recipe.objects.filter(difficulty=2).order_by('-created_date')
-        intermediate_recipes = Recipe.objects.filter(difficulty=3).order_by('-created_date')
-        tricky_recipes = Recipe.objects.filter(difficulty=4).order_by('-created_date')
-        expert_recipes = Recipe.objects.filter(difficulty=5).order_by('-created_date')
+        easy_recipes = Recipe.objects.filter(difficulty=1, status=1).order_by('-created_date')
+        novice_recipes = Recipe.objects.filter(difficulty=2, status=1).order_by('-created_date')
+        intermediate_recipes = Recipe.objects.filter(difficulty=3, status=1).order_by('-created_date')
+        tricky_recipes = Recipe.objects.filter(difficulty=4, status=1).order_by('-created_date')
+        expert_recipes = Recipe.objects.filter(difficulty=5, status=1).order_by('-created_date')
 
-        recipes = Recipe.objects.filter(difficulty=difficulty)
+        recipes = Recipe.objects.filter(difficulty=difficulty, status=1)
         context = {
                 'difficulty': difficulty,
                 'recipes': recipes,
@@ -257,12 +257,12 @@ class SearchResultsView(ListView):
         else:
             return self.model.objects.none()
 
+
 class TrendingRecipesListView(ListView):
     model = Recipe
     template_name = 'recipe_list.html'
     context_object_name = 'recipes'
     paginate_by = 8
-
 
     def get_queryset(self):
         min_score = self.request.GET.get('min_score', 0)
