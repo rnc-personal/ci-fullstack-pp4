@@ -174,16 +174,19 @@
                         <div class="character-name">Recipes</div>
                     </a>
                 </div>
+                {% if not user.is_authenticated %}
                 <div class="character-link">
                     <a href="/accounts/signup">
                         <div class="character-name">Signup</div>
                     </a>
                 </div>
+                {% else %}
                 <div class="character-link">
                     <a href="/accounts/login">
                         <div class="character-name">Login</div>
                     </a>
                 </div>
+                {% endif %}
                 <div class="copyright-block">
                     <img src="{% static 'img/baking-mama-footer.png' %}" alt="Baking Mama Copyright 2023"
                         class="character-link-image">
