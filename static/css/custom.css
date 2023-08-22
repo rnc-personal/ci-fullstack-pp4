@@ -323,6 +323,11 @@ a:hover {
     width: calc(80vw - 40px);
 }
 
+.form-inline {
+    display: flex;
+    flex-direction: column;
+}
+
 .character-link {
     position: relative;
 }

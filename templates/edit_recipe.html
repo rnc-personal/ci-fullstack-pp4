@@ -7,16 +7,16 @@
 
 <div class="edit-recipe__form">
   <h1>Edit Recipe</h1>
-  <form method="post">
+  <form method="post" class="mb-3 form-inline">
     {% csrf_token %}
     {{ recipe_form|crispy|safe }}
-    <button type="submit">Save Changes</button>
+    <button type="submit" class="btn mt-2 accent-dark">Save Changes</button>
   </form>
 
   {% if request.user == recipe.author %}
-  <form method="post" action="{% url 'delete_recipe' slug=recipe.slug %}">
+  <form method="post" class="mb-5 form-inline" action="{% url 'delete_recipe' slug=recipe.slug %}">
     {% csrf_token %}
-    <button type="submit">Delete Recipe</button>
+    <button type="submit" class="btn mb-5 accent-dark">Delete Recipe</button>
   </form>
   {% endif %}
 </div>
