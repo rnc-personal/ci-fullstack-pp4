@@ -154,6 +154,10 @@ h2,
 }
 
 /* HomePage */
+#heroSlider {
+    margin-top: 40px;
+}
+
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.3);
 }
@@ -288,8 +292,9 @@ a:hover {
 }
 
 .messages-fixed {
-    right: -40% !important;
-    top: 10rem;
+    right: -50% !important;
+    transform: translate(-50%, -50%);
+    top: 5rem;
     background-color: var(--highlight-light);
     color: var(--site-text);
     font-weight: 700;
@@ -425,5 +430,12 @@ a:hover {
 @media screen and (max-width: 640px) {
     .messages-fixed {
         display: none;
+    }
+
+    .logo-wrapper {
+        width: 40px;
+        top: 3px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

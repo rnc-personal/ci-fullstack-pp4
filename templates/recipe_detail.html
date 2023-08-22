@@ -112,7 +112,7 @@
 
             <!-- Comments section-->
             <!-- Comment form-->
-            <section class="mb-5">
+            <section class="mb-3">
                 <div class="card bg-light">
                     <div class="card-body">
                         {% if not user.is_authenticated %}
@@ -140,7 +140,7 @@
                 </div>
             </section>
             {% if comments.count > 0 %}
-            <section class="mt-5">
+            <section class="mb-5 pb-3">
                 <h3 class="fw-bolder mb-3">Comments</h3>
                 {% for comment in comments %}
                 <div class="d-flex mb-3">
