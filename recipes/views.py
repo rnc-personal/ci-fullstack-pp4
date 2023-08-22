@@ -155,7 +155,7 @@ class RecipeSubmissionView(View):
                 recipe.slug = slugify(recipe.title)
                 recipe.author = request.user
                 recipe.save()
-                return redirect('recipe_submission')
+                return redirect('submission_confirm')
         else:
             recipe_form = RecipeForm()
     
